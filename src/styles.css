@@ -1,0 +1,38 @@
+:root {
+  --bottom-nav-height: 82px;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
+}
+
+.navbar-menu {
+  z-index: 1030;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.sidebar-offcanvas {
+  z-index: 1045;
+}
+
+.modal {
+  z-index: 1055;
+}
+
+.modal-backdrop {
+  z-index: 1050;
+}
+
+.section-b-space:last-of-type {
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
