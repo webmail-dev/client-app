@@ -1,0 +1,23 @@
+<section class="search-section">
+  <div class="custom-container">
+    <form class="auth-form search-head">
+      <div class="form-group">
+        <div class="form-input">
+          <label class="visually-hidden" for="main-search">Search</label>
+          <input
+            type="search"
+            class="form-control search"
+            id="main-search"
+            name="mainSearch"
+            [attr.aria-label]="placeholder()"
+            [placeholder]="placeholder()"
+          />
+          <i class="ri-search-line search-icon"></i>
+        </div>
+        <a href="#search-filter" class="btn filter-button mt-0" data-bs-toggle="modal">
+          <i class="ri-equalizer-line"></i>
+        </a>
+      </div>
+    </form>
+  </div>
+</section>

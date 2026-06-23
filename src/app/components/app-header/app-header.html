@@ -1,0 +1,26 @@
+<header class="section-t-space">
+  <div class="custom-container">
+    @if (showSidebar()) {
+      <div class="header">
+        <div class="head-content">
+          <button class="sidebar-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft">
+            <i class="ri-menu-line"></i>
+          </button>
+          <div class="header-location">
+            <a href="#location" data-bs-toggle="modal">
+              <h2>{{ title() }}</h2>
+              <i class="ri-arrow-down-s-line d-arrow"></i>
+            </a>
+          </div>
+        </div>
+        <a href="#" aria-label="Notifications">
+          <i class="ri-notification-2-fill"></i>
+        </a>
+      </div>
+    } @else {
+      <div class="header-panel">
+        <h2>{{ title() }}</h2>
+      </div>
+    }
+  </div>
+</header>

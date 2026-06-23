@@ -1,0 +1,40 @@
+<section class="panel-space"></section>
+
+<div class="navbar-menu">
+  <ul>
+    <li [class.active]="active() === 'home'">
+      <a routerLink="/" class="icon logo">
+        <img class="img-fluid" [src]="'assets/images/svg/' + logo() + '.svg'" alt="logo" />
+        <span>{{ brand() }}</span>
+      </a>
+    </li>
+    <li [class.active]="active() === 'food'">
+      <a routerLink="/food" class="icon">
+        <img class="unactive" src="assets/images/svg/food.svg" alt="food" />
+        <img class="active" src="assets/images/svg/food-fill.svg" alt="food" />
+        <span>Food</span>
+      </a>
+    </li>
+    <li [class.active]="active() === 'grocery'">
+      <a routerLink="/grocery" class="icon">
+        <img class="unactive" src="assets/images/svg/grocery.svg" alt="grocery" />
+        <img class="active" src="assets/images/svg/grocery-fill.svg" alt="grocery" />
+        <span>Grocery</span>
+      </a>
+    </li>
+    <li [class.active]="active() === 'pharmacy'">
+      <a routerLink="/pharmacy" class="icon">
+        <img class="unactive" src="assets/images/svg/pharmacy.svg" alt="pharmacy" />
+        <img class="active" src="assets/images/svg/pharmacy-fill.svg" alt="pharmacy" />
+        <span>Pharmacy</span>
+      </a>
+    </li>
+    <li [class.active]="active() === 'profile'">
+      <a routerLink="/profile" class="icon">
+        <img class="unactive" src="assets/images/svg/user.svg" alt="user" />
+        <img class="active" src="assets/images/svg/user-fill.svg" alt="user" />
+        <span>Profile</span>
+      </a>
+    </li>
+  </ul>
+</div>
