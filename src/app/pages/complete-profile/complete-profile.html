@@ -1,0 +1,66 @@
+<main class="auth-page">
+  <section class="auth-card">
+    <div class="auth-brand">
+      <img src="assets/images/logo/favicon.png" alt="Dale Pues" />
+      <div>
+        <p>Dale Pues</p>
+        <h1>Completar perfil</h1>
+      </div>
+    </div>
+
+    <p class="auth-copy">Necesitamos estos datos para activar tu experiencia dentro de la app.</p>
+
+    @if (errorMessage) {
+      <div class="auth-alert" role="alert">{{ errorMessage }}</div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form-panel">
+      <label for="profile-name">Nombre</label>
+      <input id="profile-name" type="text" formControlName="name" autocomplete="name" />
+
+      <label for="profile-phone">Teléfono</label>
+      <input id="profile-phone" type="tel" formControlName="phone" autocomplete="tel" />
+
+      <label for="profile-type">Tipo de usuario</label>
+      <select id="profile-type" formControlName="type">
+        @for (type of userTypes; track type.value) {
+          <option [value]="type.value">{{ type.label }}</option>
+        }
+      </select>
+
+      <label for="profile-address">Dirección</label>
+      <input id="profile-address" type="text" formControlName="address" autocomplete="street-address" />
+
+      <label for="profile-city">Ciudad</label>
+      <input id="profile-city" type="text" formControlName="city" autocomplete="address-level2" />
+
+      <label for="profile-state">Estado</label>
+      <input id="profile-state" type="text" formControlName="state" autocomplete="address-level1" />
+
+      @if (requiresMerchantData()) {
+        <label for="profile-business-name">Nombre del comercio</label>
+        <input id="profile-business-name" type="text" formControlName="businessName" />
+
+        <label for="profile-business-type">Tipo de comercio</label>
+        <input id="profile-business-type" type="text" formControlName="businessType" placeholder="Restaurante, farmacia, mercado..." />
+      }
+
+      @if (requiresCourierData()) {
+        <label for="profile-identity-document">Documento de identidad</label>
+        <input id="profile-identity-document" type="text" formControlName="identityDocument" />
+
+        <label for="profile-vehicle-type">Tipo de vehículo</label>
+        <input id="profile-vehicle-type" type="text" formControlName="vehicleType" placeholder="Moto, carro, bicicleta..." />
+      }
+
+      <label class="checkbox-row">
+        <input type="checkbox" formControlName="termsAccepted" />
+        <span>Acepto los términos y condiciones de Dale Pues.</span>
+      </label>
+
+      <button class="theme-btn btn" type="submit" [disabled]="loading">
+        {{ loading ? 'Guardando...' : 'Guardar perfil' }}
+      </button>
+    </form>
+  </section>
+</main>
