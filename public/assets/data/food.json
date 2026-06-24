@@ -1,0 +1,229 @@
+{
+  "banners": [
+    {
+      "image": "assets/images/banner/banner1.png",
+      "alt": "promoción de comida"
+    },
+    {
+      "image": "assets/images/banner/banner2.png",
+      "alt": "combo destacado",
+      "variant": "home-banner2"
+    },
+    {
+      "image": "assets/images/banner/banner3.png",
+      "alt": "oferta de restaurante"
+    }
+  ],
+  "categories": [
+    {
+      "title": "Pizzas",
+      "image": "assets/images/product/pizaa.png",
+      "alt": "pizza",
+      "link": "#"
+    },
+    {
+      "title": "Hamburguesas",
+      "image": "assets/images/product/burger.png",
+      "alt": "burger",
+      "link": "#"
+    },
+    {
+      "title": "Wraps",
+      "image": "assets/images/product/boritto.png",
+      "alt": "boritto",
+      "link": "#"
+    },
+    {
+      "title": "Perros calientes",
+      "image": "assets/images/product/hotdog.png",
+      "alt": "hotdog",
+      "link": "#"
+    },
+    {
+      "title": "Pastas",
+      "image": "assets/images/product/noodles.png",
+      "alt": "noodles",
+      "link": "#"
+    }
+  ],
+  "popularProducts": [
+    {
+      "title": "Pollo criollo con arroz",
+      "image": "assets/images/product/p1.png",
+      "alt": "p1",
+      "price": 19.23,
+      "currency": "$",
+      "rating": 3.7,
+      "deliveryTime": "20 min",
+      "link": "#"
+    },
+    {
+      "title": "Pizza mixta familiar",
+      "image": "assets/images/product/p2.png",
+      "alt": "p2",
+      "price": 9.5,
+      "currency": "$",
+      "rating": 4.5,
+      "deliveryTime": "20 min",
+      "link": "#"
+    },
+    {
+      "title": "Pasta cuatro quesos",
+      "image": "assets/images/product/p3.png",
+      "alt": "p3",
+      "price": 3,
+      "currency": "$",
+      "rating": 4,
+      "deliveryTime": "20 min",
+      "link": "#"
+    }
+  ],
+  "brands": [
+    {
+      "title": "La Esquina Pizza",
+      "image": "assets/images/icons/brand1.png",
+      "alt": "brand1",
+      "link": "#"
+    },
+    {
+      "title": "Burger Caracas",
+      "image": "assets/images/icons/brand6.png",
+      "alt": "brand6",
+      "link": "#"
+    },
+    {
+      "title": "Arepas 24",
+      "image": "assets/images/icons/brand2.png",
+      "alt": "brand2",
+      "link": "#"
+    },
+    {
+      "title": "Sanduchería Central",
+      "image": "assets/images/icons/brand7.png",
+      "alt": "brand7",
+      "link": "#"
+    },
+    {
+      "title": "Café de la Plaza",
+      "image": "assets/images/icons/brand3.png",
+      "alt": "brand3",
+      "link": "#"
+    },
+    {
+      "title": "Pizza Urbana",
+      "image": "assets/images/icons/brand8.png",
+      "alt": "brand8",
+      "link": "#"
+    },
+    {
+      "title": "Pizzería Express",
+      "image": "assets/images/icons/brand4.png",
+      "alt": "brand4",
+      "link": "#"
+    },
+    {
+      "title": "Tacos del Este",
+      "image": "assets/images/icons/brand9.png",
+      "alt": "brand9",
+      "link": "#"
+    },
+    {
+      "title": "Grill Criollo",
+      "image": "assets/images/icons/brand5.png",
+      "alt": "brand5",
+      "link": "#"
+    },
+    {
+      "title": "Bowls Caracas",
+      "image": "assets/images/icons/brand10.png",
+      "alt": "brand10",
+      "link": "#"
+    }
+  ],
+  "restaurants": [
+    {
+      "title": "Arepera La Principal",
+      "image": "assets/images/product/vp1.png",
+      "alt": "vp5",
+      "link": "#",
+      "items": "Arepas, empanadas, jugos...",
+      "rating": 3.7,
+      "reviews": "1k+ reseñas",
+      "place": "Chacao",
+      "pricePerPerson": 5,
+      "currency": "$",
+      "distance": "2 km",
+      "deliveryTime": "25 min",
+      "offerAmount": "hasta $2",
+      "offerLabel": "Promo"
+    },
+    {
+      "title": "Pizza Los Palos",
+      "image": "assets/images/product/vp2.png",
+      "alt": "vp5",
+      "link": "#",
+      "items": "Pizzas, pasticho, pan de ajo...",
+      "rating": 4.5,
+      "reviews": "10k+ reseñas",
+      "place": "Las Mercedes",
+      "pricePerPerson": 19,
+      "currency": "$",
+      "distance": "3 km",
+      "deliveryTime": "18 min",
+      "offerAmount": "hasta $10",
+      "offerLabel": "Oferta",
+      "badge": "Más vendido"
+    },
+    {
+      "title": "Desayunos La Guaira",
+      "image": "assets/images/product/vp3.png",
+      "alt": "vp5",
+      "link": "#",
+      "items": "Cachitos, café, huevos, empanadas...",
+      "rating": 4,
+      "reviews": "20k+ reseñas",
+      "place": "Sabana Grande",
+      "pricePerPerson": 3,
+      "currency": "$",
+      "distance": "2.5 km",
+      "deliveryTime": "35 min",
+      "badge": "Más vendido"
+    },
+    {
+      "title": "Café Plaza Venezuela",
+      "image": "assets/images/product/vp4.png",
+      "alt": "vp5",
+      "link": "#",
+      "items": "Café, tortas, almuerzos ejecutivos...",
+      "rating": 5,
+      "reviews": "300k+ reseñas",
+      "place": "Altamira",
+      "pricePerPerson": 6,
+      "currency": "$",
+      "distance": "2.6 km",
+      "deliveryTime": "20 min"
+    },
+    {
+      "title": "Antojos del Centro",
+      "image": "assets/images/product/vp5.png",
+      "alt": "vp5",
+      "link": "#",
+      "items": "Tequeños, pepitos, combos...",
+      "rating": 4.3,
+      "reviews": "50k+ reseñas",
+      "place": "La Candelaria",
+      "pricePerPerson": 5,
+      "currency": "$",
+      "distance": "1 km",
+      "deliveryTime": "15 min",
+      "offerAmount": "hasta $20",
+      "offerLabel": "50% menos",
+      "badge": "Más vendido"
+    }
+  ],
+  "offers": [],
+  "emptyState": {
+    "title": "Antojos resueltos con Dale Pues",
+    "subtitle": "Comida preparada y entregas urbanas cerca de ti"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "categories": [
+    {
+      "title": "Medicinas",
+      "image": "assets/images/pharmacy/svg/1.svg",
+      "alt": "1",
+      "link": "#",
+      "active": true
+    },
+    {
+      "title": "Cuidado respiratorio",
+      "image": "assets/images/pharmacy/svg/2.svg",
+      "alt": "2",
+      "link": "#"
+    },
+    {
+      "title": "Cuidado personal",
+      "image": "assets/images/pharmacy/svg/3.svg",
+      "alt": "3",
+      "link": "#"
+    },
+    {
+      "title": "Bienestar",
+      "image": "assets/images/pharmacy/svg/4.svg",
+      "alt": "4",
+      "link": "#"
+    }
+  ],
+  "banners": [
+    {
+      "image": "assets/images/pharmacy/banner15.png",
+      "alt": "banner de farmacia"
+    }
+  ],
+  "offers": [
+    {
+      "title": "Oxímetro digital",
+      "image": "assets/images/pharmacy/p1.png",
+      "alt": "p1",
+      "price": 10,
+      "currency": "$",
+      "deliveryTime": "20min",
+      "offerTag": "20% menos",
+      "ctaText": "Agregar",
+      "link": "#",
+      "active": true
+    },
+    {
+      "title": "Nebulizador compacto",
+      "image": "assets/images/pharmacy/p2.png",
+      "alt": "p2",
+      "price": 10,
+      "currency": "$",
+      "deliveryTime": "20min",
+      "offerTag": "20% menos",
+      "ctaText": "Agregar",
+      "link": "#"
+    }
+  ],
+  "products": [
+    {
+      "title": "Oxímetro digital",
+      "image": "assets/images/pharmacy/p1.png",
+      "alt": "p1",
+      "price": 10,
+      "currency": "$",
+      "deliveryTime": "20min",
+      "offerTag": "20% menos",
+      "rating": 4.5,
+      "link": "#"
+    },
+    {
+      "title": "Nebulizador compacto",
+      "image": "assets/images/pharmacy/p2.png",
+      "alt": "p2",
+      "price": 10,
+      "currency": "$",
+      "deliveryTime": "20min",
+      "offerTag": "20% menos",
+      "rating": 4.5,
+      "link": "#"
+    }
+  ],
+  "wellnessItems": [
+    {
+      "title": "Suplemento bienestar",
+      "description": "Tabletas x15",
+      "image": "assets/images/pharmacy/p3.png",
+      "alt": "p3",
+      "price": 15,
+      "oldPrice": 20,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Bienestar y energía",
+      "description": "Ashwagandha",
+      "image": "assets/images/pharmacy/p4.png",
+      "alt": "p4",
+      "price": 15,
+      "oldPrice": 20,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Vitamina C naranja",
+      "description": "Sin azúcar",
+      "image": "assets/images/pharmacy/p5.png",
+      "alt": "p4",
+      "price": 15,
+      "oldPrice": 20,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    }
+  ],
+  "discountBanners": [
+    {
+      "image": "assets/images/pharmacy/banner16.png",
+      "alt": "descuento de farmacia"
+    },
+    {
+      "image": "assets/images/pharmacy/banner17.png",
+      "alt": "promoción de bienestar"
+    }
+  ],
+  "bestSellers": [
+    {
+      "title": "Nebulizador familiar",
+      "description": "Entrega segura",
+      "image": "assets/images/pharmacy/p6.png",
+      "alt": "p6",
+      "price": 5,
+      "oldPrice": 10,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Aceite corporal",
+      "description": "Cuidado personal",
+      "image": "assets/images/pharmacy/p7.png",
+      "alt": "p7",
+      "price": 8,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Refuerzo inmune",
+      "description": "Vitaminas esenciales",
+      "image": "assets/images/pharmacy/p8.png",
+      "alt": "p8",
+      "price": 10,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Multivitamínico",
+      "description": "OMEGA-3",
+      "image": "assets/images/pharmacy/p9.png",
+      "alt": "p9",
+      "price": 15,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Crema corporal",
+      "description": "Cuidado diario",
+      "image": "assets/images/pharmacy/p10.png",
+      "alt": "p10",
+      "price": 6,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    }
+  ]
+}

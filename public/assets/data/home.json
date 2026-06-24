@@ -1,0 +1,82 @@
+{
+  "categories": [
+    {
+      "title": "Comida",
+      "image": "assets/images/landing/food.png",
+      "alt": "comida",
+      "link": "/food"
+    },
+    {
+      "title": "Mercado",
+      "image": "assets/images/landing/grocery.png",
+      "alt": "mercado",
+      "link": "/grocery"
+    },
+    {
+      "title": "Farmacia",
+      "image": "assets/images/landing/pharmacy.png",
+      "alt": "farmacia",
+      "link": "/pharmacy"
+    }
+  ],
+  "offerStrip": {
+    "text": "Promos del día y ofertas cerca de ti",
+    "image": "assets/images/landing/discount-tag.png",
+    "alt": "promoción"
+  },
+  "banners": [
+    {
+      "title": "Farmacia cerca de ti",
+      "subtitle": "Medicamentos y cuidado personal en:",
+      "highlight": "20 min",
+      "image": "assets/images/landing/banner7.png",
+      "alt": "banner farmacia",
+      "ctaText": "Pedir ahora",
+      "link": "/pharmacy"
+    },
+    {
+      "title": "Comida lista sin moverte",
+      "subtitle": "Restaurantes y antojos en:",
+      "highlight": "20 min",
+      "image": "assets/images/landing/banner8.png",
+      "alt": "banner comida",
+      "ctaText": "Pedir ahora",
+      "link": "/food"
+    },
+    {
+      "title": "Mercado rápido a domicilio",
+      "subtitle": "Víveres y productos del hogar en:",
+      "highlight": "20 min",
+      "image": "assets/images/landing/banner9.png",
+      "alt": "banner mercado",
+      "ctaText": "Pedir ahora",
+      "link": "/grocery"
+    }
+  ],
+  "featuredProducts": [
+    {
+      "title": "Kit de bienestar",
+      "description": "Compra 1 y lleva 2 gratis",
+      "image": "assets/images/landing/banner10.png",
+      "alt": "producto destacado",
+      "price": 8,
+      "oldPrice": 15,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Combo para la casa",
+      "description": "Ahorra en compras rápidas",
+      "image": "assets/images/landing/banner11.png",
+      "alt": "producto destacado",
+      "price": 8,
+      "oldPrice": 15,
+      "currency": "$",
+      "rating": 4.5,
+      "ctaText": "Agregar",
+      "link": "#"
+    }
+  ]
+}
