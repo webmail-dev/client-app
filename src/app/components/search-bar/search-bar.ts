@@ -5,5 +5,5 @@ import { Component, input } from '@angular/core';
   templateUrl: './search-bar.html',
 })
 export class SearchBar {
-  readonly placeholder = input('Restaurant, item & more');
+  readonly placeholder = input('¿Qué necesitas hoy?');
 }

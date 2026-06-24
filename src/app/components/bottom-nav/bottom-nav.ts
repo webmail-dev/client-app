@@ -11,5 +11,5 @@ type NavKey = 'home' | 'food' | 'grocery' | 'pharmacy' | 'profile';
 export class BottomNav {
   readonly active = input<NavKey>('home');
   readonly logo = input('food-logo');
-  readonly brand = input('Zomo');
+  readonly brand = input('Dale Pues');
 }

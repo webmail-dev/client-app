@@ -1,347 +1,249 @@
 <app-sidebar />
 <app-header />
-<app-search-bar />
+<app-search-bar placeholder="Busca víveres, frutas o productos del hogar" />
 
-<!-- categories section start -->
-    <section class="search-section">
-        <div class="custom-container">
-            <div class="title">
-                <h3 class="mt-0">Food Categories</h3>
-                <a href="#">See All</a>
+@if (content; as content) {
+  <!-- categories section start -->
+  <section class="search-section">
+    <div class="custom-container">
+      <div class="title">
+        <h3 class="mt-0">Categorías de mercado</h3>
+        <a href="#">Ver todo</a>
+      </div>
+      <div class="swiper grocery-categories">
+        <div class="swiper-wrapper">
+          @for (category of content.categories; track category.title) {
+            <div class="swiper-slide">
+              <div class="grocery-categories-box" [class.active]="category.active">
+                <img [src]="category.image" [alt]="category.alt" />
+                <h6>{{ category.title }}</h6>
+              </div>
             </div>
-            <div class="swiper grocery-categories">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="grocery-categories-box active">
-                            <img src="assets/images/grocery/svg/1.svg" alt="1">
-                            <h6>Bread</h6>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="grocery-categories-box">
-                            <img src="assets/images/grocery/svg/2.svg" alt="2">
-                            <h6>Shrimps</h6>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="grocery-categories-box">
-                            <img src="assets/images/grocery/svg/3.svg" alt="3">
-                            <h6>Meat</h6>
-                        </div>
-                    </div>
-                </div>
+          } @empty {
+            <div class="swiper-slide">
+              <h6 class="light-text">No hay categorías disponibles.</h6>
             </div>
+          }
         </div>
-    </section>
-    <!-- categories section start -->
+      </div>
+    </div>
+  </section>
+  <!-- categories section start -->
 
-    <!-- banner section starts -->
-    <section class="search-section">
-        <div class="custom-container">
-            <img class="img-fluid banner-img" src="assets/images/grocery/banner12.png" alt="banner12">
+  <!-- banner section starts -->
+  <section class="search-section">
+    <div class="custom-container">
+      @for (banner of content.banners; track banner.image) {
+        <!-- TODO: reemplazar esta imagen por una versión con texto en español para Dale Pues. -->
+        <img class="img-fluid banner-img" [src]="banner.image" [alt]="banner.alt" />
+      } @empty {
+        <h6 class="light-text">No hay banners disponibles.</h6>
+      }
+    </div>
+  </section>
+  <!-- banner section end -->
+
+  <!-- offer product section starts -->
+  <section class="search-section">
+    <div class="custom-container">
+      <div class="title mb-0">
+        <h3 class="mt-0">Básicos para la casa</h3>
+        <a href="#">Ver todo</a>
+      </div>
+      <h6 class="sub-title light-text mb-3">Ofertas para tu primera compra</h6>
+
+      <div class="swiper grocery-product">
+        <div class="swiper-wrapper">
+          @for (product of content.products; track product.title) {
+            <div class="swiper-slide">
+              <div class="grocery-product-box">
+                <h6 class="offer-tag">{{ product.offerTag }}</h6>
+
+                <div class="grocery-product-img">
+                  <img class="img-fluid img" [src]="product.image" [alt]="product.alt" />
+                </div>
+                <div class="grocery-product-details">
+                  <h4 class="dark-text">{{ product.title }}</h4>
+                  <h4 class="light-text price">
+                    <span class="theme-color">{{ product.currency }}{{ product.price }}/{{ product.unit }} </span>|
+                    {{ product.deliveryTime }}
+                  </h4>
+                  <a [href]="product.link ?? '#'" class="btn theme-btn add-btn w-100 mt-3">{{ product.ctaText }}</a>
+                </div>
+              </div>
+            </div>
+          } @empty {
+            <div class="swiper-slide">
+              <h6 class="light-text">No hay productos disponibles.</h6>
+            </div>
+          }
         </div>
-    </section>
-    <!-- banner section end -->
+      </div>
+    </div>
+  </section>
+  <!-- offer product section end -->
 
-    <!-- offer product section starts -->
-    <section class="search-section">
-        <div class="custom-container">
-            <div class="title mb-0">
-                <h3 class="mt-0">Essential item</h3>
-                <a href="#">See All</a>
+  <!-- popular product section starts -->
+  <section>
+    <div class="custom-container">
+      <div class="title mb-0">
+        <h3 class="mt-0">Productos populares</h3>
+        <a href="#">Ver todo</a>
+      </div>
+      <h6 class="sub-title light-text mb-3">Frescos y víveres de comercios aliados</h6>
+
+      <ul class="grocery-horizontal-product-box gap-0 mt-3">
+        @for (product of content.popularProducts; track product.title) {
+          <li class="w-100">
+            <div class="horizontal-product-img">
+              <img class="img-fluid img" [src]="product.image" [alt]="product.alt" />
             </div>
-            <h6 class="sub-title light-text mb-3">Special offer on first purchase</h6>
+            <div class="horizontal-product-details">
+              <div>
+                <h5 class="fw-semibold dark-text">{{ product.title }}</h5>
+                <h4 class="light-text price mt-1 mb-1">
+                  <span class="theme-color">{{ product.currency }}{{ product.price }}/{{ product.unit }} </span>|
+                  {{ product.deliveryTime }}
+                </h4>
+              </div>
+              <div class="d-flex align-items-center gap-1">
+                <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star" />
+                <h6 class="rate-color">{{ product.rating }}</h6>
+              </div>
 
-            <div class="swiper grocery-product">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="grocery-product-box">
-                            <h6 class="offer-tag">20% off</h6>
+              <a [href]="product.link ?? '#'" class="btn theme-btn add-btn mt-0">{{ product.ctaText }}</a>
+            </div>
+          </li>
+        } @empty {
+          <li class="w-100">
+            <h6 class="light-text">No hay productos populares disponibles.</h6>
+          </li>
+        }
+      </ul>
+    </div>
+  </section>
+  <!-- popular product section end -->
 
-                            <div class="grocery-product-img">
-                                <img class="img-fluid img" src="assets/images/grocery/p1.png" alt="p1">
-                            </div>
-                            <div class="grocery-product-details">
-                                <h4 class="dark-text">Strawberry Milkshake Powder</h4>
-                                <h4 class="light-text price"><span class="theme-color">$16/kg </span>| 20min</h4>
-                                <a href="#" class="btn theme-btn add-btn w-100   mt-3">+ Add</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="grocery-product-box">
-                            <h6 class="offer-tag">20% off</h6>
-                            <div class="grocery-product-img">
-                                <img class="img-fluid img" src="assets/images/grocery/p2.png" alt="p1">
-                            </div>
-                            <div class="grocery-product-details">
-                                <h4 class="dark-text">Fresh Cabbage</h4>
-                                <h4 class="light-text price"><span class="theme-color">$16/kg </span>| 20min</h4>
-                                <a href="#" class="btn theme-btn add-btn w-100 mt-3">+ Add</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="grocery-product-box">
-                            <h6 class="offer-tag">20% off</h6>
-                            <div class="grocery-product-img">
-                                <img class="img-fluid img" src="assets/images/grocery/p3.png" alt="p1">
-                            </div>
-                            <div class="grocery-product-details">
-                                <h4 class="dark-text">Orange Juice</h4>
-                                <h4 class="light-text price"><span class="theme-color">$16/kg </span>| 20min</h4>
-                                <a href="#" class="btn theme-btn add-btn w-100 mt-3">+ Add</a>
-                            </div>
-                        </div>
-                    </div>
+  <!-- sale banner section starts -->
+  <section class="search-section">
+    <div class="custom-container">
+      <div class="title mb-0">
+        <h3 class="mt-0">Ofertas de la semana</h3>
+      </div>
+      <h6 class="sub-title light-text mb-3">Ahorra en compras rápidas para tu casa</h6>
+      <div class="row">
+        @for (offer of content.offers; track offer.image) {
+          <div class="col-6">
+            <!-- TODO: reemplazar esta imagen por una versión con texto en español para Dale Pues. -->
+            <img class="img-fluid sale-banner" [src]="offer.image" [alt]="offer.alt" />
+          </div>
+        } @empty {
+          <div class="col-12">
+            <h6 class="light-text">No hay ofertas disponibles.</h6>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+  <!-- sale banner section end -->
+
+  <!-- best selling section starts -->
+  <section class="search-section">
+    <div class="custom-container">
+      <div class="title mb-0">
+        <h3 class="mt-0">Más vendidos</h3>
+        <a href="#">Ver todo</a>
+      </div>
+      <h6 class="sub-title light-text mb-3">Los productos que más piden cerca de ti</h6>
+      <div class="row">
+        @for (product of content.bestSellers; track product.title) {
+          <div class="col-6">
+            <div class="grocery-product-box">
+              <div class="like-icon animate" [class.active]="product.active" [class.inactive]="product.active">
+                <i class="ri-heart-3-line outline-icon"></i>
+                <i class="ri-heart-3-fill fill-icon"></i>
+                <div class="effect-group">
+                  <span class="effect"></span>
+                  <span class="effect"></span>
+                  <span class="effect"></span>
+                  <span class="effect"></span>
+                  <span class="effect"></span>
                 </div>
+              </div>
+
+              <div class="grocery-product-img">
+                <img class="img-fluid img" [src]="product.image" [alt]="product.alt" />
+              </div>
+              <div class="grocery-product-details">
+                <h4 class="dark-text">{{ product.title }}</h4>
+                <h4 class="light-text price">
+                  <span class="theme-color">{{ product.currency }}{{ product.price }}/{{ product.unit }} </span>|
+                  {{ product.deliveryTime }}
+                </h4>
+                <a [href]="product.link ?? '#'" class="btn theme-btn add-btn w-100 mt-3">{{ product.ctaText }}</a>
+              </div>
             </div>
-        </div>
-    </section>
-    <!-- offer product section end -->
+          </div>
+        } @empty {
+          <div class="col-12">
+            <h6 class="light-text">No hay productos más vendidos disponibles.</h6>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+  <!-- best selling section end -->
 
-    <!-- popular product section starts -->
-    <section>
-        <div class="custom-container">
-            <div class="title mb-0">
-                <h3 class="mt-0">Popular Product</h3>
-                <a href="#">See All</a>
-            </div>
-            <h6 class="sub-title light-text mb-3">Fresh product from our mart</h6>
+  <!-- Recent Items section starts -->
+  <section class="section-b-space">
+    <div class="custom-container">
+      <div class="title mb-0">
+        <h3 class="mt-0">Compras recientes</h3>
+        <a href="#">Ver todo</a>
+      </div>
+      <h6 class="sub-title light-text mb-3">Repite rápido tus productos favoritos</h6>
 
-            <ul class="grocery-horizontal-product-box gap-0 mt-3">
-                <li class="w-100">
-                    <div class="horizontal-product-img">
-                        <img class="img-fluid img" src="assets/images/grocery/p4.png" alt="p4" />
-                    </div>
-                    <div class="horizontal-product-details">
-                        <div>
-                            <h5 class="fw-semibold dark-text">Oatmeal cookies</h5>
-                            <h4 class="light-text price mt-1 mb-1"><span class="theme-color">$16/kg </span>| 20min</h4>
-                        </div>
-                        <div class="d-flex align-items-center gap-1">
-                            <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star">
-                            <h6 class="rate-color">4.5</h6>
-                        </div>
-
-                        <a href="#" class="btn theme-btn add-btn mt-0">+ Add</a>
-                    </div>
-                </li>
-
-                <li class="w-100">
-                    <div class="horizontal-product-img">
-                        <img class="img-fluid img" src="assets/images/grocery/p5.png" alt="p5" />
-                    </div>
-                    <div class="horizontal-product-details">
-                        <div>
-                            <h5 class="fw-semibold dark-text">Organic Nuts</h5>
-                            <h4 class="light-text price mt-1 mb-1"><span class="theme-color">$16/kg </span>| 20min</h4>
-                        </div>
-                        <div class="d-flex align-items-center gap-1">
-                            <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star">
-                            <h6 class="rate-color">4.5</h6>
-                        </div>
-                        <a href="#" class="btn theme-btn add-btn mt-0">+ Add</a>
-                    </div>
-                </li>
-                <li class="w-100">
-                    <div class="horizontal-product-img">
-                        <img class="img-fluid img" src="assets/images/grocery/p6.png" alt="p6" />
-                    </div>
-                    <div class="horizontal-product-details">
-                        <div>
-                            <h5 class="fw-semibold dark-text">Telvita Breakfast Meal</h5>
-                            <h4 class="light-text price mt-1 mb-1"><span class="theme-color">$16/kg </span>| 20min</h4>
-                        </div>
-                        <div class="d-flex align-items-center gap-1">
-                            <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star">
-                            <h6 class="rate-color">4.5</h6>
-                        </div>
-                        <a href="#" class="btn theme-btn add-btn mt-0">+ Add</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!-- popular product section end -->
-
-    <!-- sale banner section starts -->
-    <section class="search-section">
-        <div class="custom-container">
-            <div class="title mb-0">
-                <h3 class="mt-0">Sale of the week </h3>
-            </div>
-            <h6 class="sub-title light-text mb-3">Get great product on sale of this week</h6>
-	            <div class="row">
-	                <div class="col-6">
-	                    <img class="img-fluid sale-banner" src="assets/images/grocery/banner13.png" alt="banner13">
-	                </div>
-	                <div class="col-6">
-	                    <img class="img-fluid sale-banner" src="assets/images/grocery/banner14.png" alt="banner14">
-	                </div>
-	            </div>
-	        </div>
-	    </section>
-    <!-- sale banner section end -->
-
-    <!-- best selling section starts -->
-    <section class="search-section">
-        <div class="custom-container">
-            <div class="title mb-0">
-                <h3 class="mt-0">Best Selling</h3>
-                <a href="#">See All</a>
-            </div>
-            <h6 class="sub-title light-text mb-3">Get your product from best seller</h6>
-            <div class="row">
-                <div class="col-6">
-                    <div class="grocery-product-box">
-                        <div class="like-icon animate active inactive">
-                            <i class="ri-heart-3-line outline-icon"></i>
-                            <i class="ri-heart-3-fill fill-icon"></i>
-                            <div class="effect-group">
-                                <span class="effect"></span>
-                                <span class="effect"></span>
-                                <span class="effect"></span>
-                                <span class="effect"></span>
-                                <span class="effect"></span>
-                            </div>
-                        </div>
-
-                        <div class="grocery-product-img">
-                            <img class="img-fluid img" src="assets/images/grocery/p1.png" alt="p1">
-                        </div>
-                        <div class="grocery-product-details">
-                            <h4>Strawberry Milkshake Powder</h4>
-                            <h4 class="light-text price"><span class="theme-color">$16/kg </span>| 20min</h4>
-                            <a href="#" class="btn theme-btn add-btn w-100 mt-3">+ Add</a>
-
-                        </div>
-                    </div>
+      <div class="row g-3">
+        @for (product of content.recentItems; track product.title) {
+          <div class="col-12">
+            <div class="grocery-horizontal-product-box2">
+              <div class="horizontal-product-img">
+                <img class="img-fluid img" [src]="product.image" [alt]="product.alt" />
+              </div>
+              <div class="horizontal-product-details">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h5 class="fw-semibold dark-text">{{ product.title }}</h5>
+                  <div class="d-flex align-items-center gap-1">
+                    <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star" />
+                    <h6 class="rate-color">{{ product.rating }}</h6>
+                  </div>
                 </div>
-                <div class="col-6">
-                    <div class="grocery-product-box">
-                        <div class="like-icon">
-                            <i class="ri-heart-3-line outline-icon"></i>
-                            <i class="ri-heart-3-fill fill-icon"></i>
-                            <div class="effect-group">
-                                <span class="effect"></span>
-                                <span class="effect"></span>
-                                <span class="effect"></span>
-                                <span class="effect"></span>
-                                <span class="effect"></span>
-                            </div>
-                        </div>
-                        <div class="grocery-product-img">
-                            <img class="img-fluid img" src="assets/images/grocery/p3.png" alt="p1">
-                        </div>
-                        <div class="grocery-product-details">
-                            <h4 class="dark-text">Orange Juice</h4>
-                            <h4 class="light-text price"><span class="theme-color">$16/kg </span>| 20min</h4>
-                            <a href="#" class="btn theme-btn add-btn w-100 mt-3">+ Add</a>
-                        </div>
-                    </div>
+                <div class="d-flex align-items-center justify-content-between mt-2">
+                  <h6 class="light-text price mt-1 mb-1">{{ product.deliveryTime }}</h6>
+                  <h5 class="theme-color">
+                    <span class="fw-semibold">{{ product.currency }}{{ product.price }}</span>/{{ product.unit }}
+                  </h5>
                 </div>
+              </div>
             </div>
-        </div>
-    </section>
-    <!-- best selling section end -->
-
-    <!-- Recent Items section starts -->
-    <section class="section-b-space">
-        <div class="custom-container">
-            <div class="title mb-0">
-                <h3 class="mt-0">Recent Items</h3>
-                <a href="#">See All</a>
-            </div>
-            <h6 class="sub-title light-text mb-3">Fresh product from our mart</h6>
-
-            <div class="row g-3">
-                <div class="col-12">
-                    <div class="grocery-horizontal-product-box2 ">
-                        <div class="horizontal-product-img">
-                            <img class="img-fluid img" src="assets/images/grocery/p4.png" alt="p4" />
-                        </div>
-                        <div class="horizontal-product-details">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h5 class="fw-semibold dark-text">Oatmeal cookies</h5>
-                                <div class="d-flex align-items-center gap-1">
-                                    <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star">
-                                    <h6 class="rate-color">4.5</h6>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mt-2">
-                                <h6 class="light-text price mt-1 mb-1">20 min away home</h6>
-                                <h5 class="theme-color"> <span class="fw-semibold">$16</span>/kg</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="grocery-horizontal-product-box2">
-                        <div class="horizontal-product-img">
-                            <img class="img-fluid img" src="assets/images/grocery/p5.png" alt="p5" />
-                        </div>
-                        <div class="horizontal-product-details">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h5 class="fw-semibold dark-text">Organic Nuts</h5>
-                                <div class="d-flex align-items-center gap-1">
-                                    <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star">
-                                    <h6 class="rate-color">4.5</h6>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mt-2">
-                                <h6 class="light-text price mt-1 mb-1">20 min away home</h6>
-                                <h5 class="theme-color"> <span class="fw-semibold">$16</span>/kg</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="grocery-horizontal-product-box2">
-                        <div class="horizontal-product-img">
-                            <img class="img-fluid img" src="assets/images/grocery/p3.png" alt="p3" />
-                        </div>
-                        <div class="horizontal-product-details">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h5 class="fw-semibold dark-text">Orange Juice</h5>
-                                <div class="d-flex align-items-center gap-1">
-                                    <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star">
-                                    <h6 class="rate-color">4.5</h6>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mt-2">
-                                <h6 class="light-text price mt-1 mb-1">20 min away home</h6>
-                                <h5 class="theme-color"> <span class="fw-semibold">$16</span>/kg</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="grocery-horizontal-product-box2">
-                        <div class="horizontal-product-img">
-                            <img class="img-fluid img" src="assets/images/grocery/p7.png" alt="p7" />
-                        </div>
-                        <div class="horizontal-product-details">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h5 class="fw-semibold dark-text">Butter Biscuit
-                                </h5>
-                                <div class="d-flex align-items-center gap-1">
-                                    <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star">
-                                    <h6 class="rate-color">4.5</h6>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mt-2">
-                                <h6 class="light-text price mt-1 mb-1">20 min away home</h6>
-                                <h5 class="theme-color"> <span class="fw-semibold">$16</span>/kg</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Recent Items section end -->
+          </div>
+        } @empty {
+          <div class="col-12">
+            <h6 class="light-text">No hay compras recientes disponibles.</h6>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+  <!-- Recent Items section end -->
+} @else {
+  <section class="search-section">
+    <div class="custom-container">
+      <h6 class="light-text">Cargando contenido...</h6>
+    </div>
+  </section>
+}
 
 <app-filter-modal />
 <app-location-modal />
-<app-bottom-nav active="grocery" logo="grocery-logo" brand="Zomo" />
+<app-bottom-nav active="grocery" logo="grocery-logo" brand="Dale Pues" />

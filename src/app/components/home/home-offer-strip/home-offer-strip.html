@@ -1,0 +1,14 @@
+<!-- offer banner starts -->
+<section>
+  <div class="custom-container">
+    @if (offerStrip(); as offer) {
+      <div class="offer-deal-box">
+        <img class="img-fluid deal-img" [src]="offer.image" [alt]="offer.alt" />
+        <h5>{{ offer.text }}</h5>
+      </div>
+    } @else {
+      <h6 class="light-text">No hay promociones disponibles.</h6>
+    }
+  </div>
+</section>
+<!-- offer banner end -->

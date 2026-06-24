@@ -2,8 +2,8 @@
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
       <div class="modal-title">
-        <h3 class="fw-semibold">Filter</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h3 class="fw-semibold">Filtros</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <section class="section-b-space pt-0">
         <div class="custom-container">
@@ -11,10 +11,10 @@
             <li class="mt-0">
               <div class="payment-detail">
                 <div class="add-img">
-                  <img class="img-fluid img" src="assets/images/svg/truck.svg" alt="truck" />
+                  <img class="img-fluid img" src="assets/images/svg/truck.svg" alt="entrega" />
                 </div>
                 <div class="form-check radio-btn">
-                  <label class="form-check-label" for="btn-1">Fast Delivery</label>
+                  <label class="form-check-label" for="btn-1">Entrega rápida</label>
                   <input class="form-check-input" type="radio" name="deliveryFilter" id="btn-1" checked />
                 </div>
               </div>
@@ -22,10 +22,10 @@
             <li class="mt-0">
               <div class="payment-detail">
                 <div class="add-img">
-                  <img class="img-fluid img" src="assets/images/svg/location.svg" alt="location" />
+                  <img class="img-fluid img" src="assets/images/svg/location.svg" alt="ubicación" />
                 </div>
                 <div class="form-check radio-btn">
-                  <label class="form-check-label" for="btn-2">Store in my area</label>
+                  <label class="form-check-label" for="btn-2">Comercios cerca de mí</label>
                   <input class="form-check-input" type="radio" name="deliveryFilter" id="btn-2" />
                 </div>
               </div>
@@ -33,10 +33,10 @@
             <li class="mt-0">
               <div class="payment-detail">
                 <div class="add-img">
-                  <img class="img-fluid img" src="assets/images/svg/summary.svg" alt="summary" />
+                  <img class="img-fluid img" src="assets/images/svg/summary.svg" alt="pedidos" />
                 </div>
                 <div class="form-check radio-btn">
-                  <label class="form-check-label" for="btn-3">Previous Orders</label>
+                  <label class="form-check-label" for="btn-3">Pedidos anteriores</label>
                   <input class="form-check-input" type="radio" name="deliveryFilter" id="btn-3" />
                 </div>
               </div>
@@ -44,10 +44,10 @@
             <li class="mt-0">
               <div class="payment-detail">
                 <div class="add-img">
-                  <img class="img-fluid img" src="assets/images/svg/star.svg" alt="star" />
+                  <img class="img-fluid img" src="assets/images/svg/star.svg" alt="popular" />
                 </div>
                 <div class="form-check radio-btn">
-                  <label class="form-check-label" for="btn-4">Popular Order</label>
+                  <label class="form-check-label" for="btn-4">Más pedidos</label>
                   <input class="form-check-input" type="radio" name="deliveryFilter" id="btn-4" />
                 </div>
               </div>
@@ -57,14 +57,14 @@
           <section class="pt-0">
             <div class="amount-range">
               <div class="range">
-                <label class="form-label">Min Order Amount</label>
+                <label class="form-label">Monto mínimo</label>
                 <output class="range-amount">$100</output>
               </div>
               <input
                 type="range"
                 id="min-order-amount"
                 name="minOrderAmount"
-                aria-label="Min Order Amount"
+                aria-label="Monto mínimo"
                 value="100"
                 min="0"
                 max="500"
@@ -75,14 +75,14 @@
           <section class="pt-0">
             <div class="amount-range">
               <div class="range">
-                <label class="form-label">Location Between</label>
+                <label class="form-label">Distancia máxima</label>
                 <output class="range-amount">2km</output>
               </div>
               <input
                 type="range"
                 id="location-distance"
                 name="locationDistance"
-                aria-label="Location Between"
+                aria-label="Distancia máxima"
                 value="2"
                 min="0"
                 max="10"
@@ -92,17 +92,17 @@
 
           <section class="pt-0">
             <div class="order-options">
-              <h3 class="mt-3 mb-3 dark-text fw-semibold">Order Type</h3>
+              <h3 class="mt-3 mb-3 dark-text fw-semibold">Tipo de pedido</h3>
               <div class="order-type">
                 <div class="auth-form search-form">
                   <div class="form-check">
-                    <label class="form-check-label" for="fixed1">Delivery</label>
+                    <label class="form-check-label" for="fixed1">A domicilio</label>
                     <input class="form-check-input" type="radio" name="orderType" id="fixed1" checked />
                   </div>
                 </div>
                 <div class="auth-form search-form">
                   <div class="form-check">
-                    <label class="form-check-label" for="fixed2">Pick Up</label>
+                    <label class="form-check-label" for="fixed2">Retirar en tienda</label>
                     <input class="form-check-input" type="radio" name="orderType" id="fixed2" />
                   </div>
                 </div>
@@ -112,17 +112,17 @@
 
           <section class="pt-0 section-lg-b-space">
             <div class="order-options">
-              <h3 class="mb-3 dark-text fw-semibold">Veg/Non-Veg</h3>
+              <h3 class="mb-3 dark-text fw-semibold">Preferencia de comida</h3>
               <div class="order-type">
                 <div class="auth-form search-form">
                   <div class="form-check">
-                    <label class="form-check-label" for="fixed3">Pure Veg</label>
+                    <label class="form-check-label" for="fixed3">Vegetariana</label>
                     <input class="form-check-input" type="radio" name="foodType" id="fixed3" />
                   </div>
                 </div>
                 <div class="auth-form search-form section-b-space">
                   <div class="form-check">
-                    <label class="form-check-label" for="fixed4">Non Veg</label>
+                    <label class="form-check-label" for="fixed4">Con proteína</label>
                     <input class="form-check-input" type="radio" name="foodType" id="fixed4" checked />
                   </div>
                 </div>
@@ -133,8 +133,8 @@
       </section>
 
       <div class="footer-modal d-flex">
-        <a href="#" class="btn btn-link btn-inline mt-0 w-50">Clear Filter</a>
-        <a href="#" class="theme-btn btn btn-inline mt-0 w-50">Apply</a>
+        <a href="#" class="btn btn-link btn-inline mt-0 w-50">Limpiar</a>
+        <a href="#" class="theme-btn btn btn-inline mt-0 w-50">Aplicar</a>
       </div>
     </div>
   </div>

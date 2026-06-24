@@ -19,8 +19,8 @@ export class CompleteProfilePage implements OnInit {
 
   readonly userTypes: Array<{ value: UserType; label: string }> = [
     { value: 'client', label: 'Cliente' },
-    { value: 'merchant', label: 'Comercio afiliado' },
-    { value: 'courier', label: 'Repartidor / mensajero' },
+    { value: 'merchant', label: 'Comercio local' },
+    { value: 'courier', label: 'Repartidor o mensajero' },
   ];
 
   readonly selectedType = signal<UserType>('client');

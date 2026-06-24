@@ -1,0 +1,182 @@
+{
+  "categories": [
+    {
+      "title": "Panadería",
+      "image": "assets/images/grocery/svg/1.svg",
+      "alt": "1",
+      "link": "#",
+      "active": true
+    },
+    {
+      "title": "Proteínas",
+      "image": "assets/images/grocery/svg/2.svg",
+      "alt": "2",
+      "link": "#"
+    },
+    {
+      "title": "Carnicería",
+      "image": "assets/images/grocery/svg/3.svg",
+      "alt": "3",
+      "link": "#"
+    }
+  ],
+  "banners": [
+    {
+      "image": "assets/images/grocery/banner12.png",
+      "alt": "banner de mercado"
+    }
+  ],
+  "products": [
+    {
+      "title": "Bebida sabor fresa",
+      "image": "assets/images/grocery/p1.png",
+      "alt": "p1",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "deliveryTime": "20min",
+      "offerTag": "20% menos",
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Repollo fresco",
+      "image": "assets/images/grocery/p2.png",
+      "alt": "p1",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "deliveryTime": "20min",
+      "offerTag": "20% menos",
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Jugo de naranja",
+      "image": "assets/images/grocery/p3.png",
+      "alt": "p1",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "deliveryTime": "20min",
+      "offerTag": "20% menos",
+      "ctaText": "Agregar",
+      "link": "#"
+    }
+  ],
+  "popularProducts": [
+    {
+      "title": "Galletas de avena",
+      "image": "assets/images/grocery/p4.png",
+      "alt": "p4",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "rating": 4.5,
+      "deliveryTime": "20min",
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Frutos secos",
+      "image": "assets/images/grocery/p5.png",
+      "alt": "p5",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "rating": 4.5,
+      "deliveryTime": "20min",
+      "ctaText": "Agregar",
+      "link": "#"
+    },
+    {
+      "title": "Cereal para desayuno",
+      "image": "assets/images/grocery/p6.png",
+      "alt": "p6",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "rating": 4.5,
+      "deliveryTime": "20min",
+      "ctaText": "Agregar",
+      "link": "#"
+    }
+  ],
+  "offers": [
+    {
+      "image": "assets/images/grocery/banner13.png",
+      "alt": "oferta de mercado"
+    },
+    {
+      "image": "assets/images/grocery/banner14.png",
+      "alt": "promoción de víveres"
+    }
+  ],
+  "bestSellers": [
+    {
+      "title": "Bebida sabor fresa",
+      "image": "assets/images/grocery/p1.png",
+      "alt": "p1",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "deliveryTime": "20min",
+      "ctaText": "Agregar",
+      "link": "#",
+      "active": true
+    },
+    {
+      "title": "Jugo de naranja",
+      "image": "assets/images/grocery/p3.png",
+      "alt": "p1",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "deliveryTime": "20min",
+      "ctaText": "Agregar",
+      "link": "#"
+    }
+  ],
+  "recentItems": [
+    {
+      "title": "Galletas de avena",
+      "image": "assets/images/grocery/p4.png",
+      "alt": "p4",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "rating": 4.5,
+      "deliveryTime": "A 20 min de tu casa"
+    },
+    {
+      "title": "Frutos secos",
+      "image": "assets/images/grocery/p5.png",
+      "alt": "p5",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "rating": 4.5,
+      "deliveryTime": "A 20 min de tu casa"
+    },
+    {
+      "title": "Jugo de naranja",
+      "image": "assets/images/grocery/p3.png",
+      "alt": "p3",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "rating": 4.5,
+      "deliveryTime": "A 20 min de tu casa"
+    },
+    {
+      "title": "Galletas de mantequilla",
+      "image": "assets/images/grocery/p7.png",
+      "alt": "p7",
+      "price": 16,
+      "currency": "$",
+      "unit": "kg",
+      "rating": 4.5,
+      "deliveryTime": "A 20 min de tu casa"
+    }
+  ]
+}

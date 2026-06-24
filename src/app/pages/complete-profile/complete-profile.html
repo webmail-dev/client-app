@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <p class="auth-copy">Necesitamos estos datos para activar tu experiencia dentro de la app.</p>
+    <p class="auth-copy">Completa tus datos para recibir pedidos, compras y envíos sin enredos.</p>
 
     @if (errorMessage) {
       <div class="auth-alert" role="alert">{{ errorMessage }}</div>
@@ -28,7 +28,7 @@
         }
       </select>
 
-      <label for="profile-address">Dirección</label>
+      <label for="profile-address">Dirección de entrega</label>
       <input id="profile-address" type="text" formControlName="address" autocomplete="street-address" />
 
       <label for="profile-city">Ciudad</label>

@@ -1,0 +1,24 @@
+<!-- categories section starts -->
+<section>
+  <div class="custom-container">
+    <div class="row">
+      @for (category of categories(); track category.title) {
+        <div class="col-4">
+          <div class="main-categories-box">
+            <a [routerLink]="category.link">
+              <div class="main-categories-img">
+                <img class="img-fluid img" [src]="category.image" [alt]="category.alt" />
+              </div>
+              <h6 class="dark-text">{{ category.title }}</h6>
+            </a>
+          </div>
+        </div>
+      } @empty {
+        <div class="col-12">
+          <h6 class="light-text">No hay categorías disponibles.</h6>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+<!-- categories section starts -->

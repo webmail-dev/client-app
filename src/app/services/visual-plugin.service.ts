@@ -1,16 +1,9 @@
 import { Injectable, NgZone, inject } from '@angular/core';
-import { ScriptLoaderService } from './script-loader.service';
-
-declare global {
-  interface Window {
-    Swiper?: new (selector: string, options?: Record<string, unknown>) => unknown;
-    initCustomSwipers?: () => void;
-  }
-}
+import { UiInitService } from './ui-init.service';
 
 @Injectable({ providedIn: 'root' })
 export class VisualPluginService {
-  private readonly scripts = inject(ScriptLoaderService);
+  private readonly uiInit = inject(UiInitService);
   private readonly zone = inject(NgZone);
   private interactionsController?: AbortController;
 
@@ -21,18 +14,13 @@ export class VisualPluginService {
       return;
     }
 
-    await this.scripts.load('/assets/js/swiper-bundle.min.js');
-
-    this.zone.runOutsideAngular(() => {
-      requestAnimationFrame(() => {
-        this.initFallbackSwipers();
-      });
-    });
+    await this.uiInit.reinitSwipers();
   }
 
   destroyPagePlugins(): void {
     this.interactionsController?.abort();
     this.interactionsController = undefined;
+    this.uiInit.destroySwipers();
   }
 
   private initTemplateInteractions(): void {
@@ -90,29 +78,5 @@ export class VisualPluginService {
         );
       });
     });
-  }
-
-  private initFallbackSwipers(): void {
-    if (!window.Swiper) {
-      return;
-    }
-
-    const configs: Array<[string, Record<string, unknown>]> = [
-      ['.banner1', { slidesPerView: 1, loop: true, pagination: { el: '.swiper-pagination' } }],
-      ['.categories', { slidesPerView: 4.2, spaceBetween: 12 }],
-      ['.products', { slidesPerView: 1.35, spaceBetween: 14 }],
-      ['.brands-logo', { slidesPerView: 4.2, spaceBetween: 12 }],
-      ['.main-seller-product', { slidesPerView: 1.3, spaceBetween: 14 }],
-      ['.grocery-categories', { slidesPerView: 3.2, spaceBetween: 12 }],
-      ['.pharmacy-categories', { slidesPerView: 4.2, spaceBetween: 12 }],
-      ['.grocery-product', { slidesPerView: 1.65, spaceBetween: 14 }],
-      ['.discount-banner', { slidesPerView: 1.2, spaceBetween: 14 }],
-    ];
-
-    for (const [selector, options] of configs) {
-      if (document.querySelector(selector)) {
-        new window.Swiper(selector, options);
-      }
-    }
   }
 }

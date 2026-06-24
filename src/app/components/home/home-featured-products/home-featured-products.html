@@ -1,0 +1,49 @@
+<!-- seller product section starts -->
+<section class="section-b-space">
+  <div class="custom-container">
+    <div class="title">
+      <h3 class="mt-0">Más pedidos hoy</h3>
+      <a href="#">Ver todo</a>
+    </div>
+
+    <div class="swiper main-seller-product">
+      <div class="swiper-wrapper">
+        @for (product of products(); track product.title) {
+          <div class="swiper-slide">
+            <div class="main-product-card">
+              <img
+                class="card-img-top product-card-img"
+                [src]="product.image"
+                [alt]="product.alt"
+                style="width:100%"
+              />
+              <div class="card-body">
+                <div class="card-title">
+                  <h5>{{ product.title }}</h5>
+                  <div class="d-flex align-items-center gap-1">
+                    <img class="img-fluid" src="assets/images/svg/rating-star.svg" alt="star" />
+                    <h6 class="rate-color">{{ product.rating }}</h6>
+                  </div>
+                </div>
+                <h6 class="mt-1 light-text">| {{ product.description }}</h6>
+
+                <div class="d-flex align-items-center justify-content-between mt-2">
+                  <h3 class="theme-color">
+                    {{ product.currency }}{{ product.price }}
+                    <del class="light-text">{{ product.currency }}{{ product.oldPrice }}</del>
+                  </h3>
+                  <a [href]="product.link ?? '#'" class="btn theme-btn add-btn mt-0">{{ product.ctaText }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        } @empty {
+          <div class="swiper-slide">
+            <h6 class="light-text">No hay productos destacados disponibles.</h6>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<!-- seller product section end -->

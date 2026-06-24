@@ -35,26 +35,26 @@ export const routes: Routes = [
     path: 'food',
     canActivate: [authGuard],
     loadComponent: () => import('./pages/food-home/food-home').then((m) => m.FoodHomePage),
-    title: 'Food',
+    title: 'Comida',
   },
   {
     path: 'grocery',
     canActivate: [authGuard],
     loadComponent: () => import('./pages/grocery-home/grocery-home').then((m) => m.GroceryHomePage),
-    title: 'Grocery',
+    title: 'Mercado',
   },
   {
     path: 'pharmacy',
     canActivate: [authGuard],
     loadComponent: () =>
       import('./pages/pharmacy-home/pharmacy-home').then((m) => m.PharmacyHomePage),
-    title: 'Pharmacy',
+    title: 'Farmacia',
   },
   {
     path: 'profile',
     canActivate: [authGuard],
     loadComponent: () => import('./pages/profile/profile').then((m) => m.ProfilePage),
-    title: 'Profile',
+    title: 'Perfil',
   },
   {
     path: '**',

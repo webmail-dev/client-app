@@ -1,0 +1,28 @@
+<!-- banner section starts -->
+<section>
+  <div class="custom-container">
+    <div class="row g-3">
+      @for (banner of banners(); track banner.image) {
+        <div class="col-12">
+          <div class="main-banner-box">
+            <!-- TODO: reemplazar esta imagen por una versión con texto en español para Dale Pues. -->
+            <img class="banner-img img-fluid w-100" [src]="banner.image" [alt]="banner.alt" />
+            <div class="main-banner-details">
+              <h3>{{ banner.title }}</h3>
+              <h5>{{ banner.subtitle }}<span> {{ banner.highlight }}</span></h5>
+              <a [href]="banner.link ?? '#'" class="order-part d-flex justify-content-between align-items-center">
+                <h5 class="dark-text p-0">{{ banner.ctaText }}</h5>
+                <img class="img-fluid arrow" src="assets/images/svg/arrow.svg" alt="flecha" />
+              </a>
+            </div>
+          </div>
+        </div>
+      } @empty {
+        <div class="col-12">
+          <h6 class="light-text">No hay banners disponibles.</h6>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+<!-- banner section end -->
