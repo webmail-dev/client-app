@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dale Pues | Documentación técnica</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #111827;
+      --panel-2: #172033;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --line: #334155;
+      --accent: #ef4444;
+      --accent-2: #38bdf8;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --ok: #22c55e;
+      --code: #020617;
+      --shadow: 0 18px 48px rgba(0, 0, 0, .28);
+      --sidebar: 304px;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --panel-2: #eef2f7;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #d7e0eb;
+      --accent: #dc2626;
+      --accent-2: #0284c7;
+      --warn: #b45309;
+      --danger: #dc2626;
+      --ok: #16a34a;
+      --code: #0f172a;
+      --shadow: 0 18px 48px rgba(15, 23, 42, .1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.62;
+    }
+    a { color: inherit; text-decoration: none; }
+    code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+    code {
+      background: color-mix(in srgb, var(--panel-2) 80%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-size: .9em;
+    }
+    pre {
+      margin: 14px 0 22px;
+      overflow: auto;
+      background: var(--code);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, .25);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: .88rem;
+      line-height: 1.55;
+    }
+    pre code { background: transparent; border: 0; padding: 0; }
+    .layout {
+      display: grid;
+      grid-template-columns: var(--sidebar) minmax(0, 1fr);
+      min-height: 100vh;
+    }
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      border-right: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 94%, var(--bg));
+      padding: 22px 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .brand strong { display: block; line-height: 1.1; }
+    .brand span { color: var(--muted); font-size: .78rem; }
+    .theme {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-2);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      margin: 16px 0 22px;
+      font: inherit;
+      font-size: .9rem;
+    }
+    .nav-title {
+      margin: 20px 0 8px;
+      color: var(--muted);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .nav-link {
+      display: block;
+      color: var(--muted);
+      border-radius: 7px;
+      padding: 8px 10px;
+      font-size: .9rem;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text);
+      background: color-mix(in srgb, var(--accent-2) 17%, transparent);
+    }
+    .topbar {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 14px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar button {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-2);
+      color: var(--text);
+      padding: 8px 12px;
+      font: inherit;
+    }
+    main { min-width: 0; padding: 48px clamp(18px, 5vw, 72px) 86px; }
+    section { max-width: 1120px; margin: 0 0 48px; scroll-margin-top: 26px; }
+    .hero {
+      max-width: 1120px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 36px;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: 0;
+      max-width: 900px;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+    h3 { margin: 24px 0 10px; font-size: 1.08rem; }
+    p { margin: 0 0 14px; }
+    .lead { color: var(--muted); max-width: 900px; font-size: 1.05rem; }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 0;
+    }
+    .hero-actions a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--text);
+      padding: 10px 13px;
+      font-weight: 700;
+      font-size: .92rem;
+    }
+    .hero-actions a:first-child {
+      border-color: color-mix(in srgb, var(--accent) 72%, var(--line));
+      background: color-mix(in srgb, var(--accent) 14%, var(--panel));
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 24px 0 0;
+    }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .card small {
+      display: block;
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+    }
+    .card strong { display: block; font-size: 1rem; }
+    .callout {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent-2);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 14px 16px;
+      margin: 18px 0;
+    }
+    .callout.warn { border-left-color: var(--warn); }
+    .callout.danger { border-left-color: var(--danger); }
+    .callout.ok { border-left-color: var(--ok); }
+    .table {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      margin: 16px 0 24px;
+    }
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 11px 13px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      background: color-mix(in srgb, var(--panel-2) 70%, transparent);
+      font-size: .76rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    tr:last-child td { border-bottom: 0; }
+    ul, ol { padding-left: 22px; margin: 10px 0 18px; }
+    li { margin: 6px 0; }
+    .flow { display: grid; gap: 12px; counter-reset: step; }
+    .step {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 14px 16px 14px 58px;
+    }
+    .step:before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 900;
+    }
+    .step strong { display: block; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      padding: 2px 8px;
+      font-size: .78rem;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+    @media (max-width: 980px) {
+      .layout { display: block; }
+      .topbar { display: flex; }
+      .sidebar {
+        position: fixed;
+        z-index: 30;
+        inset: 0 auto 0 0;
+        width: min(86vw, var(--sidebar));
+        transform: translateX(-105%);
+        transition: transform .2s ease;
+      }
+      .sidebar.open { transform: translateX(0); }
+      main { padding-top: 28px; }
+      .grid, .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      main { padding-left: 16px; padding-right: 16px; }
+      .grid, .grid.two { grid-template-columns: 1fr; }
+      h1 { font-size: 2.35rem; }
+      table { min-width: 680px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <button id="menuButton" type="button">Navegación</button>
+    <span>Dale Pues Docs</span>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img src="logo.svg" alt="Dale Pues">
+        <div>
+          <strong>Dale Pues</strong>
+          <span>Documentación técnica</span>
+        </div>
+      </div>
+      <button class="theme" type="button" id="themeToggle">
+        <span>Tema</span>
+        <strong id="themeLabel">Oscuro</strong>
+      </button>
+      <nav>
+        <div class="nav-title">Proyecto</div>
+        <a class="nav-link" href="#resumen">Resumen</a>
+        <a class="nav-link" href="#inventario">Inventario</a>
+        <a class="nav-link" href="#arquitectura">Arquitectura</a>
+        <a class="nav-link" href="#estructura">Estructura</a>
+        <a class="nav-link" href="#navegacion">Navegación</a>
+        <div class="nav-title">Aplicación</div>
+        <a class="nav-link" href="#componentes">Componentes</a>
+        <a class="nav-link" href="#paginas">Páginas</a>
+        <a class="nav-link" href="#servicios">Servicios</a>
+        <a class="nav-link" href="#autenticacion">Autenticación</a>
+        <a class="nav-link" href="#assets">Assets</a>
+        <a class="nav-link" href="#pwa">PWA</a>
+        <div class="nav-title">Operación</div>
+        <a class="nav-link" href="#dependencias">Dependencias</a>
+        <a class="nav-link" href="#despliegue">Despliegue</a>
+        <a class="nav-link" href="#troubleshooting">Troubleshooting</a>
+      </nav>
+    </aside>
+
+    <main>
+      <header class="hero" id="resumen">
+        <p class="eyebrow">Angular 21 + PWA + plantilla mobile delivery</p>
+        <h1>Documentación técnica de Dale Pues</h1>
+        <p class="lead">
+          Dale Pues es una aplicación Angular mobile-first que migra cinco vistas HTML estáticas de una plantilla de delivery a una PWA modular con rutas, componentes compartidos, carga controlada de scripts visuales y assets cacheables.
+        </p>
+        <div class="hero-actions" aria-label="Referencias internas">
+          <a href="#arquitectura">Ver arquitectura</a>
+          <a href="#componentes">Componentes</a>
+          <a href="#pwa">PWA</a>
+          <a href="#despliegue">Despliegue</a>
+        </div>
+        <div class="grid">
+          <div class="card"><small>Aplicación</small><strong>Dale Pues</strong></div>
+          <div class="card"><small>Framework</small><strong>Angular 21 standalone</strong></div>
+          <div class="card"><small>Entrega</small><strong>PWA mobile-first</strong></div>
+          <div class="card"><small>Dominio</small><strong>Food, grocery y pharmacy</strong></div>
+        </div>
+      </header>
+
+      <section id="inventario">
+        <h2>Inventario Del Código Actual</h2>
+        <p class="lead">
+          Inventario obtenido directamente de <code>angular.json</code>, <code>package.json</code>, <code>src/app/**</code>, <code>src/assets/**</code>, <code>public/manifest.webmanifest</code> y <code>ngsw-config.json</code>.
+        </p>
+        <div class="table">
+          <table>
+            <thead><tr><th>Tipo</th><th>Elementos detectados</th><th>Observación</th></tr></thead>
+            <tbody>
+              <tr><td>Rutas</td><td><code>/</code>, <code>/food</code>, <code>/grocery</code>, <code>/pharmacy</code>, <code>/profile</code>, wildcard</td><td>Todas las rutas principales usan <code>loadComponent</code>.</td></tr>
+              <tr><td>Páginas</td><td><code>home</code>, <code>food-home</code>, <code>grocery-home</code>, <code>pharmacy-home</code>, <code>profile</code></td><td>Representan las cinco vistas HTML migradas.</td></tr>
+              <tr><td>Componentes</td><td><code>app-header</code>, <code>app-sidebar</code>, <code>bottom-nav</code>, <code>search-bar</code>, <code>filter-modal</code>, <code>location-modal</code></td><td>Bloques compartidos extraídos de los HTML originales.</td></tr>
+              <tr><td>Servicios</td><td><code>BodyClassService</code>, <code>ScriptLoaderService</code>, <code>VisualPluginService</code></td><td>Gestionan clases por página, scripts externos e interacciones visuales.</td></tr>
+              <tr><td>Modelos</td><td><code>NavKey</code></td><td>Tipo local en <code>bottom-nav.ts</code>. No hay carpeta de modelos ni interfaces globales.</td></tr>
+              <tr><td>Ambientes</td><td>No existe <code>src/environments</code></td><td>La configuración de build vive en <code>angular.json</code> y la PWA en <code>app.config.ts</code>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="arquitectura">
+        <h2>Arquitectura</h2>
+        <p class="lead">
+          La aplicación es un frontend Angular standalone. No contiene backend ni clientes HTTP de datos; su comportamiento actual se concentra en navegación SPA, composición visual, PWA y adaptación de plugins heredados de una plantilla HTML.
+        </p>
+        <pre><code>Navegador / PWA
+  |
+  |-- Angular bootstrapApplication(App, appConfig)
+  |   |-- Router lazy-loaded por página
+  |   |-- Componentes compartidos mobile-first
+  |   |-- Servicios de integración visual
+  |   `-- Service worker Angular en producción
+  |
+  |-- Assets estáticos
+  |   |-- CSS: Metropolis, Remixicon, Swiper, Bootstrap, tema Zomo
+  |   |-- JS: Bootstrap global, Swiper diferido
+  |   `-- Imágenes por dominio: landing, food, grocery, pharmacy, profile
+  |
+  `-- Navegación SPA
+      |-- /
+      |-- /food
+      |-- /grocery
+      |-- /pharmacy
+      `-- /profile</code></pre>
+        <div class="callout">
+          La arquitectura conserva la estructura visual de los HTML fuente, pero separa layout, páginas y scripts en piezas Angular mantenibles.
+        </div>
+      </section>
+
+      <section id="estructura">
+        <h2>Estructura De Carpetas</h2>
+        <div class="table">
+          <table>
+            <thead><tr><th>Ruta</th><th>Responsabilidad</th><th>Detalle</th></tr></thead>
+            <tbody>
+              <tr><td><code>src/app/components</code></td><td>Componentes compartidos</td><td>Header, sidebar, navegación inferior, búsqueda y modales reutilizables.</td></tr>
+              <tr><td><code>src/app/pages</code></td><td>Vistas principales</td><td>Contiene una carpeta por página con HTML, CSS y TS separados.</td></tr>
+              <tr><td><code>src/app/services</code></td><td>Servicios transversales</td><td>Carga de scripts, reinicialización de sliders, clases del body y helpers visuales.</td></tr>
+              <tr><td><code>src/assets</code></td><td>Assets de plantilla</td><td>Carpeta presente con imágenes, CSS, fuentes y JS. En la configuración actual no es el origen copiado por Angular.</td></tr>
+              <tr><td><code>public/assets</code></td><td>Assets publicados</td><td>Origen configurado en <code>angular.json</code>. Las plantillas resuelven <code>assets/...</code> contra esta carpeta.</td></tr>
+              <tr><td><code>public/manifest.webmanifest</code></td><td>Manifest PWA</td><td>Nombre, colores, iconos y modo standalone.</td></tr>
+              <tr><td><code>ngsw-config.json</code></td><td>Service worker</td><td>Estrategias de cache para shell, assets e iconos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <pre><code>src/app
+  components/
+  pages/
+  services/
+  app.config.ts
+  app.routes.ts
+
+public
+  assets/
+  icons/
+  manifest.webmanifest</code></pre>
+      </section>
+
+      <section id="navegacion">
+        <h2>Navegación Y Rutas</h2>
+        <div class="table">
+          <table>
+            <thead><tr><th>Ruta</th><th>Componente</th><th>Propósito</th><th>Título</th></tr></thead>
+            <tbody>
+              <tr><td><code>/</code></td><td><code>HomePage</code></td><td>Landing principal con categorías Food, Grocery, Pharmacy, banners y productos destacados.</td><td>Dale Pues</td></tr>
+              <tr><td><code>/food</code></td><td><code>FoodHomePage</code></td><td>Home de restaurantes y productos de comida con sliders de banners, categorías, productos, marcas y restaurantes.</td><td>Food</td></tr>
+              <tr><td><code>/grocery</code></td><td><code>GroceryHomePage</code></td><td>Home de supermercado con categorías, productos esenciales, productos populares, ofertas y recientes.</td><td>Grocery</td></tr>
+              <tr><td><code>/pharmacy</code></td><td><code>PharmacyHomePage</code></td><td>Home de farmacia con categorías, productos, zona de ofertas, descuentos y best sellers.</td><td>Pharmacy</td></tr>
+              <tr><td><code>/profile</code></td><td><code>ProfilePage</code></td><td>Perfil de usuario con accesos a configuración, direcciones, wishlist, pagos, órdenes y logout.</td><td>Profile</td></tr>
+              <tr><td><code>**</code></td><td>Redirect</td><td>Redirige cualquier ruta desconocida a <code>/</code>.</td><td>-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="componentes">
+        <h2>Componentes Compartidos</h2>
+        <div class="table">
+          <table>
+            <thead><tr><th>Componente</th><th>Responsabilidad</th><th>Inputs</th><th>Outputs</th><th>Dependencias</th></tr></thead>
+            <tbody>
+              <tr><td><code>AppHeader</code></td><td>Renderiza el header superior. Puede mostrar menú lateral, ubicación, notificación o panel simple de título.</td><td><code>title</code>, <code>showSidebar</code></td><td>No expone eventos Angular.</td><td>Bootstrap attributes <code>data-bs-toggle</code> para modal/offcanvas.</td></tr>
+              <tr><td><code>AppSidebar</code></td><td>Offcanvas lateral con perfil, switches RTL/Dark y enlaces básicos.</td><td>Ninguno.</td><td>No expone eventos Angular.</td><td><code>RouterLink</code>, Bootstrap offcanvas, <code>VisualPluginService</code> engancha switches.</td></tr>
+              <tr><td><code>BottomNav</code></td><td>Navegación inferior fija entre home, food, grocery, pharmacy y profile.</td><td><code>active</code>, <code>logo</code>, <code>brand</code></td><td>No expone eventos Angular.</td><td><code>RouterLink</code>; usa iconos SVG de <code>assets/images/svg</code>.</td></tr>
+              <tr><td><code>SearchBar</code></td><td>Buscador compartido con botón de filtro.</td><td><code>placeholder</code></td><td>No emite búsquedas todavía.</td><td>Bootstrap modal para abrir <code>#search-filter</code>.</td></tr>
+              <tr><td><code>FilterModal</code></td><td>Modal fullscreen con opciones de filtrado estáticas, rangos y radios.</td><td>Ninguno.</td><td>No expone eventos Angular.</td><td>Bootstrap modal; listeners de rango desde <code>VisualPluginService</code>.</td></tr>
+              <tr><td><code>LocationModal</code></td><td>Modal fullscreen para búsqueda y selección de ubicación.</td><td>Ninguno.</td><td>No expone eventos Angular.</td><td>Bootstrap modal; assets Remixicon.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">
+          No existe un componente <code>Footer</code> independiente. En esta migración, la navegación inferior fija cumple el rol operativo de footer mobile.
+        </div>
+      </section>
+
+      <section id="paginas">
+        <h2>Páginas</h2>
+        <div class="table">
+          <table>
+            <thead><tr><th>Página</th><th>Objetivo</th><th>Componentes usados</th><th>Recursos consumidos</th></tr></thead>
+            <tbody>
+              <tr><td><code>HomePage</code></td><td>Landing principal de servicios.</td><td>Sidebar, Header, SearchBar, FilterModal, LocationModal, BottomNav.</td><td><code>assets/images/landing</code>, <code>assets/images/svg</code>, Swiper <code>.main-seller-product</code>.</td></tr>
+              <tr><td><code>FoodHomePage</code></td><td>Experiencia de restaurantes y comida.</td><td>Sidebar, Header, SearchBar, FilterModal, LocationModal, BottomNav.</td><td><code>assets/images/banner</code>, <code>assets/images/product</code>, <code>assets/images/icons</code>; sliders <code>.banner1</code>, <code>.categories</code>, <code>.products</code>, <code>.brands-logo</code>.</td></tr>
+              <tr><td><code>GroceryHomePage</code></td><td>Catálogo inicial de supermercado.</td><td>Sidebar, Header, SearchBar, FilterModal, LocationModal, BottomNav.</td><td><code>assets/images/grocery</code>, <code>assets/images/grocery/svg</code>; sliders <code>.grocery-categories</code> y <code>.grocery-product</code>.</td></tr>
+              <tr><td><code>PharmacyHomePage</code></td><td>Catálogo inicial de farmacia.</td><td>Sidebar, Header, SearchBar, FilterModal, LocationModal, BottomNav.</td><td><code>assets/images/pharmacy</code>, <code>assets/images/pharmacy/svg</code>; sliders <code>.pharmacy-categories</code>, <code>.grocery-product</code>, <code>.discount-banner</code>.</td></tr>
+              <tr><td><code>ProfilePage</code></td><td>Perfil y accesos de cuenta.</td><td>Header sin sidebar, BottomNav.</td><td><code>assets/images/icons/profile.png</code>, iconos SVG de perfil, pagos, órdenes, ticket y logout.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Flujo de navegación</h3>
+        <p>
+          El flujo principal se realiza desde <code>BottomNav</code>. La página raíz permite navegar a las verticales mediante <code>routerLink</code> en las tarjetas Food, Grocery y Pharmacy. Las acciones internas de catálogo todavía apuntan a <code>#</code>, porque la migración cubre únicamente las cinco vistas solicitadas.
+        </p>
+      </section>
+
+      <section id="servicios">
+        <h2>Servicios</h2>
+        <div class="table">
+          <table>
+            <thead><tr><th>Servicio</th><th>Responsabilidad</th><th>API pública</th><th>Riesgos / notas</th></tr></thead>
+            <tbody>
+              <tr><td><code>ScriptLoaderService</code></td><td>Carga scripts dinámicamente y evita duplicados por URL.</td><td><code>load(src)</code>, <code>loadAll(scripts)</code></td><td>Busca scripts existentes por <code>src</code>. Conviene usar rutas absolutas consistentes como <code>/assets/js/...</code>.</td></tr>
+              <tr><td><code>VisualPluginService</code></td><td>Inicializa Swiper y listeners heredados de la plantilla después de renderizar la vista.</td><td><code>initPagePlugins(usesSwiper)</code>, <code>destroyPagePlugins()</code></td><td>Usa <code>NgZone.runOutsideAngular</code> y <code>AbortController</code> para limpiar listeners en navegación.</td></tr>
+              <tr><td><code>BodyClassService</code></td><td>Gestiona clases visuales de página en <code>body</code>.</td><td><code>setPageClass(className?)</code></td><td>Actualmente administra <code>grocery-color</code> y <code>pharmacy-color</code>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <pre><code>ngAfterViewInit(): void {
+  void this.visualPlugins.initPagePlugins(true);
+}
+
+ngOnDestroy(): void {
+  this.visualPlugins.destroyPagePlugins();
+  this.bodyClass.setPageClass();
+}</code></pre>
+      </section>
+
+      <section id="assets">
+        <h2>Assets</h2>
+        <p class="lead">
+          La aplicación referencia assets como <code>assets/...</code>. Con la configuración actual, Angular copia <code>public/**</code> al build, por lo que los recursos efectivos viven en <code>public/assets</code>.
+        </p>
+        <div class="table">
+          <table>
+            <thead><tr><th>Tipo</th><th>Ruta</th><th>Uso</th><th>Carga</th></tr></thead>
+            <tbody>
+              <tr><td>CSS global</td><td><code>public/assets/css/vendors/metropolis.min.css</code></td><td>Fuente Metropolis.</td><td><code>angular.json</code></td></tr>
+              <tr><td>CSS global</td><td><code>public/assets/css/vendors/remixicon.css</code></td><td>Set de iconos <code>ri-*</code>.</td><td><code>angular.json</code></td></tr>
+              <tr><td>CSS global</td><td><code>public/assets/css/vendors/swiper-bundle.min.css</code></td><td>Layout y estilos de carruseles.</td><td><code>angular.json</code></td></tr>
+              <tr><td>CSS global</td><td><code>public/assets/css/vendors/bootstrap.min.css</code></td><td>Grid, modales, offcanvas y utilidades.</td><td><code>angular.json</code></td></tr>
+              <tr><td>CSS global</td><td><code>public/assets/css/style.css</code></td><td>Tema visual original de la plantilla.</td><td><code>angular.json</code></td></tr>
+              <tr><td>CSS integración</td><td><code>src/styles.css</code></td><td>Overrides Angular: z-index, padding inferior y safe area.</td><td><code>angular.json</code></td></tr>
+              <tr><td>JS global</td><td><code>public/assets/js/bootstrap.bundle.min.js</code></td><td>Modales y offcanvas.</td><td><code>angular.json</code></td></tr>
+              <tr><td>JS diferido</td><td><code>public/assets/js/swiper-bundle.min.js</code></td><td>Sliders/carouseles.</td><td><code>ScriptLoaderService</code></td></tr>
+              <tr><td>JS no global</td><td><code>public/assets/js/script.js</code></td><td>Script original de plantilla.</td><td>No cargado globalmente; partes necesarias fueron encapsuladas.</td></tr>
+              <tr><td>Imágenes</td><td><code>public/assets/images/**</code></td><td>Banners, productos, iconos, logos, perfil y SVG.</td><td>Referencias directas en templates.</td></tr>
+              <tr><td>Fuentes</td><td><code>public/assets/fonts/**</code></td><td>Metropolis y Remixicon.</td><td>Importadas desde CSS vendor.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">
+          Existe también <code>src/assets</code> con una copia de la plantilla. La configuración actual no la utiliza como fuente de assets del build. Si se decide migrar a <code>src/assets</code>, hay que actualizar <code>angular.json</code> y evitar duplicados.
+        </div>
+      </section>
+
+      <section id="pwa">
+        <h2>PWA</h2>
+        <h3>Manifest</h3>
+        <p>
+          <code>public/manifest.webmanifest</code> define <code>name</code> y <code>short_name</code> como Dale Pues, color de tema <code>#dc3545</code>, modo <code>standalone</code>, <code>scope</code> raíz, <code>start_url</code> raíz e iconos de 192 y 512 px.
+        </p>
+        <h3>Service Worker</h3>
+        <p>
+          <code>app.config.ts</code> registra <code>ngsw-worker.js</code> con <code>provideServiceWorker</code>. El service worker solo se habilita fuera de modo desarrollo mediante <code>!isDevMode()</code>.
+        </p>
+        <div class="table">
+          <table>
+            <thead><tr><th>Grupo</th><th>Estrategia</th><th>Recursos</th><th>Objetivo</th></tr></thead>
+            <tbody>
+              <tr><td><code>app</code></td><td><code>prefetch</code></td><td><code>index.html</code>, manifest, favicon, CSS y JS raíz.</td><td>Cachear shell de aplicación al instalar.</td></tr>
+              <tr><td><code>assets</code></td><td><code>lazy</code> + <code>prefetch</code> en updates</td><td><code>/assets/**</code>, <code>/icons/**</code></td><td>Cachear imágenes, fuentes y recursos estáticos cuando se usan.</td></tr>
+              <tr><td><code>navigationUrls</code></td><td>SPA fallback</td><td><code>/**</code> excluyendo archivos con extensión.</td><td>Permitir navegación directa a rutas Angular.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          El soporte offline cubre el shell Angular y assets cacheados. No hay sincronización offline de datos porque la app actual no consume APIs de negocio.
+        </div>
+      </section>
+
+      <section id="dependencias">
+        <h2>Dependencias</h2>
+        <div class="table">
+          <table>
+            <thead><tr><th>Nombre</th><th>Versión</th><th>Tipo</th><th>Propósito</th></tr></thead>
+            <tbody>
+              <tr><td><code>@angular/common</code></td><td><code>^21.0.0</code></td><td>Runtime</td><td>Directivas, pipes, servicios comunes y utilidades de plataforma.</td></tr>
+              <tr><td><code>@angular/compiler</code></td><td><code>^21.0.0</code></td><td>Runtime/build</td><td>Compilación de templates Angular.</td></tr>
+              <tr><td><code>@angular/core</code></td><td><code>^21.0.0</code></td><td>Runtime</td><td>Componentes, DI, señales, ciclo de vida y bootstrap.</td></tr>
+              <tr><td><code>@angular/forms</code></td><td><code>^21.0.0</code></td><td>Runtime</td><td>Soporte para formularios; actualmente disponible para evolución de inputs.</td></tr>
+              <tr><td><code>@angular/platform-browser</code></td><td><code>^21.0.0</code></td><td>Runtime</td><td>Arranque en navegador con <code>bootstrapApplication</code>.</td></tr>
+              <tr><td><code>@angular/router</code></td><td><code>^21.0.0</code></td><td>Runtime</td><td>Rutas SPA, <code>RouterLink</code> y lazy loading.</td></tr>
+              <tr><td><code>@angular/service-worker</code></td><td><code>^21.0.0</code></td><td>Runtime</td><td>PWA y cache de assets.</td></tr>
+              <tr><td><code>rxjs</code></td><td><code>~7.8.0</code></td><td>Runtime</td><td>Base reactiva de Angular; no hay servicios de datos personalizados basados en observables aún.</td></tr>
+              <tr><td><code>tslib</code></td><td><code>^2.3.0</code></td><td>Runtime</td><td>Helpers TypeScript emitidos por compilación.</td></tr>
+              <tr><td><code>@angular/build</code></td><td><code>^21.0.3</code></td><td>Dev</td><td>Builder de aplicación Angular.</td></tr>
+              <tr><td><code>@angular/cli</code></td><td><code>^21.0.3</code></td><td>Dev</td><td>CLI para serve, build, test y generación.</td></tr>
+              <tr><td><code>@angular/compiler-cli</code></td><td><code>^21.0.0</code></td><td>Dev</td><td>Compilador Angular para TypeScript/templates.</td></tr>
+              <tr><td><code>jsdom</code></td><td><code>^27.1.0</code></td><td>Dev</td><td>Entorno DOM para pruebas.</td></tr>
+              <tr><td><code>typescript</code></td><td><code>~5.9.2</code></td><td>Dev</td><td>Compilación estática.</td></tr>
+              <tr><td><code>vitest</code></td><td><code>^4.0.8</code></td><td>Dev</td><td>Runner de pruebas configurado por Angular.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="despliegue">
+        <h2>Despliegue Y Comandos</h2>
+        <div class="flow">
+          <div class="step"><strong>Instalar dependencias</strong><code>npm install</code> instala Angular, TypeScript, Vitest y librerías runtime.</div>
+          <div class="step"><strong>Desarrollo local</strong><code>ng serve</code> o <code>npm start</code> levanta el servidor de desarrollo. El service worker no se activa en dev por <code>!isDevMode()</code>.</div>
+          <div class="step"><strong>Build productivo</strong><code>ng build</code> compila JS/CSS, copia <code>public/**</code>, genera manifest y service worker.</div>
+          <div class="step"><strong>Publicación</strong>Publicar el contenido de <code>dist/dale-pues/browser</code> en el hosting estático elegido.</div>
+        </div>
+        <pre><code>npm install
+ng serve
+ng build</code></pre>
+        <div class="callout warn">
+          Angular 21 requiere Node <code>^20.19.0</code>, <code>^22.12.0</code> o <code>&gt;=24.0.0</code>. Con Node 18, <code>ng build</code> falla antes de compilar.
+        </div>
+      </section>
+
+      <section id="autenticacion">
+        <h2>Autenticación PocketBase</h2>
+        <p>
+          La primera fase de autenticación usa PocketBase como backend de identidad y mantiene los datos de perfil en la colección Auth <code>users</code>. La arquitectura queda preparada para separar comercios y repartidores en <code>merchant_profiles</code> y <code>courier_profiles</code> cuando avance el dominio.
+        </p>
+        <div class="grid two">
+          <div class="card">
+            <small>Servicios Angular</small>
+            <strong><code>PocketbaseService</code> y <code>AuthPocketbaseService</code></strong>
+            <p>Exponen la instancia SDK, login con email/password, Google OAuth2, registro, logout, recuperación de contraseña, estado de sesión, roles y verificación de perfil incompleto.</p>
+          </div>
+          <div class="card">
+            <small>Rutas nuevas</small>
+            <strong><code>/login</code>, <code>/register</code>, <code>/complete-profile</code>, <code>/home</code></strong>
+            <p>Las vistas principales están protegidas por <code>authGuard</code>. El formulario de completar perfil bloquea el acceso si faltan datos mínimos o términos aceptados.</p>
+          </div>
+        </div>
+        <h3>Esquema de usuarios</h3>
+        <p>
+          La migración <code>backend/pb_migrations/20260624000100_update_users_auth.js</code> agrega campos operativos a <code>users</code>: <code>phone</code>, <code>type</code>, <code>status</code>, <code>address</code>, <code>city</code>, <code>state</code>, <code>country</code>, <code>roleDescription</code>, <code>lastLoginAt</code>, <code>profileCompleted</code>, <code>termsAccepted</code> y campos temporales mínimos para comercio/repartidor.
+        </p>
+        <div class="table">
+          <table>
+            <thead><tr><th>Campo</th><th>Valores / uso</th></tr></thead>
+            <tbody>
+              <tr><td><code>type</code></td><td><code>client</code>, <code>merchant</code>, <code>courier</code>, <code>admin</code>, <code>support</code>.</td></tr>
+              <tr><td><code>status</code></td><td><code>active</code>, <code>pending</code>, <code>rejected</code>, <code>blocked</code>, <code>inactive</code>.</td></tr>
+              <tr><td><code>profileCompleted</code></td><td>Calculado por Angular según los campos requeridos para cada tipo de usuario.</td></tr>
+              <tr><td><code>businessName</code>, <code>businessType</code></td><td>Campos temporales de fase 1 para comercios. TODO: mover a <code>merchant_profiles</code>.</td></tr>
+              <tr><td><code>identityDocument</code>, <code>vehicleType</code></td><td>Campos temporales de fase 1 para repartidores. TODO: mover a <code>courier_profiles</code>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Flujo</h3>
+        <p>
+          En login tradicional se llama a <code>authWithPassword</code>. En Google se llama a <code>authWithOAuth2({ provider: 'google' })</code>. Después de autenticar, el servicio normaliza <code>type</code>, <code>status</code>, <code>country</code>, actualiza <code>lastLoginAt</code> y redirige a <code>/complete-profile</code> si faltan datos. Las cuentas <code>blocked</code> o <code>inactive</code> limpian sesión y no acceden al panel.
+        </p>
+        <h3>Operación PocketBase</h3>
+        <pre><code>cd backend
+./pocketbase migrate up --dir pb_migrations
+./pocketbase serve</code></pre>
+        <p>
+          Para Google OAuth2, habilitar el proveedor en PocketBase Admin dentro de la colección <code>users</code>, registrar Client ID y Client Secret de Google Cloud, y usar como Authorized redirect URI la URL OAuth mostrada por PocketBase para el servidor activo.
+        </p>
+      </section>
+
+      <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <div class="table">
+          <table>
+            <thead><tr><th>Problema</th><th>Causa probable</th><th>Solución</th></tr></thead>
+            <tbody>
+              <tr><td>Assets no encontrados</td><td>La app usa <code>assets/...</code> y Angular copia <code>public/**</code>.</td><td>Verificar que el archivo exista en <code>public/assets</code>. Evitar depender de <code>src/assets</code> mientras no esté configurado.</td></tr>
+              <tr><td>CSS duplicado o estilos inconsistentes</td><td>Los CSS también están enlazados en <code>src/index.html</code> y cargados desde <code>angular.json</code>.</td><td>Centralizar la carga en una sola estrategia si aparecen duplicaciones visuales.</td></tr>
+              <tr><td>Sliders no inicializan al cambiar de ruta</td><td>Swiper necesita inicializarse después de renderizar la vista.</td><td>Usar <code>VisualPluginService.initPagePlugins(true)</code> en <code>AfterViewInit</code>.</td></tr>
+              <tr><td>Listeners duplicados</td><td>Scripts heredados enganchados varias veces en navegación SPA.</td><td>Usar <code>destroyPagePlugins()</code> en <code>OnDestroy</code>; no cargar <code>script.js</code> globalmente.</td></tr>
+              <tr><td>Contenido tapado por bottom nav</td><td><code>.navbar-menu</code> es fijo.</td><td><code>src/styles.css</code> agrega padding inferior y safe-area al body.</td></tr>
+              <tr><td>Service worker no aparece en desarrollo</td><td>Está deshabilitado por <code>!isDevMode()</code>.</td><td>Probar con build productivo servido por HTTP estático.</td></tr>
+              <tr><td>Rutas 404 en hosting estático</td><td>El servidor no reescribe rutas SPA a <code>index.html</code>.</td><td>Configurar fallback de SPA. En GitHub Pages, usar base href correcto y fallback si se sirve desde subcarpeta.</td></tr>
+              <tr><td><code>ng build</code> falla por Node</td><td>Node menor a 20.19.</td><td>Actualizar Node a 20.19+, 22.12+ o 24+.</td></tr>
+              <tr><td>Iconos Remix no aparecen</td><td>Faltan fuentes o CSS de Remixicon.</td><td>Validar <code>public/assets/css/vendors/remixicon.css</code> y <code>public/assets/fonts/remixicon.*</code>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+    const sidebar = document.getElementById('sidebar');
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = [...document.querySelectorAll('.nav-link')];
+
+    const savedTheme = localStorage.getItem('dale-pues-docs-theme');
+    if (savedTheme) html.dataset.theme = savedTheme;
+    themeLabel.textContent = html.dataset.theme === 'dark' ? 'Oscuro' : 'Claro';
+
+    themeToggle.addEventListener('click', () => {
+      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('dale-pues-docs-theme', html.dataset.theme);
+      themeLabel.textContent = html.dataset.theme === 'dark' ? 'Oscuro' : 'Claro';
+    });
+
+    menuButton.addEventListener('click', () => sidebar.classList.toggle('open'));
+    navLinks.forEach((link) => link.addEventListener('click', () => sidebar.classList.remove('open')));
+
+    const sections = navLinks
+      .map((link) => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${visible.target.id}`);
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: [0.1, 0.4, 0.8] });
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
+</body>
+</html>

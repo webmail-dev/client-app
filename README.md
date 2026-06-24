@@ -1,59 +1,199 @@
-# DalePues
+# Dale Pues
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+Aplicación web progresiva (PWA) desarrollada con Angular para servicios de entrega y comercio local.
 
-## Development server
+## Tecnologías
 
-To start a local development server, run:
+* Angular 21
+* TypeScript
+* SCSS / CSS
+* Angular Router
+* Angular Service Worker (PWA)
+* HTML5
+* Responsive Design
+
+---
+
+## Requisitos
+
+Antes de iniciar asegúrese de tener instalado:
+
+* Node.js 20 o superior
+* NPM 10 o superior
+* Angular CLI
+
+Verificar versiones:
+
+```bash
+node -v
+npm -v
+ng version
+```
+
+---
+
+## Instalación
+
+Clonar el repositorio:
+
+```bash
+git clone <url-del-repositorio>
+cd dale-pues
+```
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+---
+
+## Ejecución en desarrollo
+
+Iniciar servidor local:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Abrir:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+La aplicación recargará automáticamente al detectar cambios.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Compilación
 
-To build the project run:
+Generar versión de producción:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Los archivos compilados se generan en:
 
-## Running unit tests
+```text
+dist/
+```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+---
+
+## Estructura del proyecto
+
+```text
+src/
+│
+├── app/
+│   ├── components/
+│   │   ├── header/
+│   │   ├── footer/
+│   │   ├── sidebar/
+│   │   ├── bottom-nav/
+│   │   └── componentes reutilizables
+│   │
+│   ├── pages/
+│   │   ├── home/
+│   │   ├── food-home/
+│   │   ├── grocery-home/
+│   │   ├── pharmacy-home/
+│   │   └── profile/
+│   │
+│   ├── services/
+│   │   └── script-loader.service.ts
+│   │
+│   ├── app.routes.ts
+│   └── app.config.ts
+│
+├── assets/
+│   ├── images/
+│   ├── css/
+│   ├── js/
+│   └── fonts/
+│
+├── styles.css
+└── main.ts
+```
+
+---
+
+## Rutas principales
+
+```text
+/
+ /food
+ /grocery
+ /pharmacy
+ /profile
+```
+
+---
+
+## Assets
+
+Los recursos estáticos se encuentran dentro de:
+
+```text
+src/assets
+```
+
+Incluyen:
+
+* Imágenes
+* Fuentes
+* Hojas de estilo
+* Scripts externos
+
+---
+
+## Scripts dinámicos
+
+Los scripts que requieren inicialización después del renderizado de Angular deben cargarse mediante:
+
+```text
+ScriptLoaderService
+```
+
+Esto permite:
+
+* Evitar cargas duplicadas
+* Inicializar sliders
+* Inicializar carruseles
+* Mantener compatibilidad con navegación SPA
+
+---
+
+## PWA
+
+La aplicación incluye soporte para:
+
+* Instalación en dispositivos móviles
+* Caché de recursos estáticos
+* Funcionamiento optimizado en dispositivos móviles
+* Experiencia similar a aplicación nativa
+
+---
+
+## Calidad de código
+
+Verificar compilación:
+
+```bash
+ng build
+```
+
+Ejecutar pruebas:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Autor
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Buckapi Development
