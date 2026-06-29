@@ -6,7 +6,7 @@ export default {
   cleanUrls: true,
   lastUpdated: true,
   appearance: true,
-  head: [['link', { rel: 'icon', href: '/logo.svg' }]],
+  head: [['link', { rel: 'icon', href: '/client-app/logo.svg' }]],
   themeConfig: {
     logo: '/logo.svg',
     siteTitle: 'Dale Pues Docs',
