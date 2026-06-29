@@ -38,6 +38,12 @@ cd backend
 ./pocketbase serve --migrationsDir pb_migrations
 ```
 
+Para que PocketBase escuche conexiones desde fuera de la máquina local, iniciarlo indicando `0.0.0.0`:
+
+```bash
+./pocketbase serve --migrationsDir pb_migrations --http=0.0.0.0:8090
+```
+
 Frontend:
 
 ```bash

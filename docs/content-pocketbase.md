@@ -202,6 +202,12 @@ cd backend
 ./pocketbase serve --migrationsDir pb_migrations
 ```
 
+Si PocketBase debe escuchar desde fuera del equipo local:
+
+```bash
+./pocketbase serve --migrationsDir pb_migrations --http=0.0.0.0:8090
+```
+
 Levantar Angular:
 
 ```bash

@@ -39,6 +39,15 @@ Para AWS/produccion no se debe dejar CORS abierto. El backend debe arrancar con 
   --origins=https://app.dalepues.com,https://www.dalepues.com
 ```
 
+Si PocketBase debe escuchar directamente desde fuera del host, usar `--http=0.0.0.0:8090`:
+
+```sh
+./pocketbase serve app.dalepues.com \
+  --migrationsDir pb_migrations \
+  --http=0.0.0.0:8090 \
+  --origins=https://app.dalepues.com,https://www.dalepues.com
+```
+
 Si PocketBase queda detras de Nginx, ALB o CloudFront, la lista de `--origins` debe coincidir con los dominios publicos reales del frontend, no con `127.0.0.1`. OAuth Google tambien debe usar esas URLs publicas como redirect permitido.
 
 ## Proteccion de `/admin/`

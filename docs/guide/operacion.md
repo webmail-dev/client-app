@@ -72,6 +72,12 @@ cd backend
 ./pocketbase serve --migrationsDir pb_migrations --http=127.0.0.1:8090
 ```
 
+`127.0.0.1` limita PocketBase a conexiones locales. Si el servidor debe recibir conexiones externas, por ejemplo desde internet, una red privada o un reverse proxy en otra máquina, levantarlo con:
+
+```sh
+./pocketbase serve --migrationsDir pb_migrations --http=0.0.0.0:8090
+```
+
 ## Flujo de trabajo
 
 1. **Desarrollo local:** aplicar migraciones, levantar PocketBase y ejecutar `npm start`.
