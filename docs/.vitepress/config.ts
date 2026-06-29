@@ -1,4 +1,5 @@
 export default {
+   base: '/client-app/',
   title: 'Dale Pues',
   description: 'Documentacion tecnica de Dale Pues',
   lang: 'es-CO',
