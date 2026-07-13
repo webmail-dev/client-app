@@ -1,4 +1,4 @@
-# Paginas
+# Páginas
 
 | Pagina | Objetivo | Componentes / servicios |
 | --- | --- | --- |

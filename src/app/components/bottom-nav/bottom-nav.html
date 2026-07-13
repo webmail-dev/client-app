@@ -2,35 +2,39 @@
 
 <div class="navbar-menu">
   <ul>
-    <li [class.active]="active() === 'home'">
-      <a routerLink="/" class="icon logo">
-        <img class="img-fluid" [src]="'assets/images/svg/' + logo() + '.svg'" alt="logo" />
-        <span>DalePues</span>
+    <li
+      [class.active]="active() === 'home'"
+      [class.market-active]="active() === 'grocery'"
+      [class.pharmacy-active]="active() === 'pharmacy'"
+    >
+      <a routerLink="/" class="icon logo" aria-label="Ir al inicio de Vecimerca">
+        <app-vecimerca-isotype />
+        <span>Vecimerca</span>
       </a>
     </li>
     <li [class.active]="active() === 'food'">
-      <a routerLink="/food" class="icon">
+      <a routerLink="/food" class="icon" aria-label="Ir a comida">
         <img class="unactive" src="assets/images/svg/food.svg" alt="comida" />
         <img class="active" src="assets/images/svg/food-fill.svg" alt="comida" />
         <span>Comida</span>
       </a>
     </li>
     <li [class.active]="active() === 'grocery'">
-      <a routerLink="/grocery" class="icon">
+      <a routerLink="/grocery" class="icon" aria-label="Ir a mercado">
         <img class="unactive" src="assets/images/svg/grocery.svg" alt="mercado" />
         <img class="active" src="assets/images/svg/grocery-fill.svg" alt="mercado" />
         <span>Mercado</span>
       </a>
     </li>
     <li [class.active]="active() === 'pharmacy'">
-      <a routerLink="/pharmacy" class="icon">
+      <a routerLink="/pharmacy" class="icon" aria-label="Ir a farmacia">
         <img class="unactive" src="assets/images/svg/pharmacy.svg" alt="farmacia" />
         <img class="active" src="assets/images/svg/pharmacy-fill.svg" alt="farmacia" />
         <span>Farmacia</span>
       </a>
     </li>
     <li [class.active]="active() === 'profile'">
-      <a routerLink="/profile" class="icon">
+      <a routerLink="/profile" class="icon" aria-label="Ir al perfil">
         <img class="unactive" src="assets/images/svg/user.svg" alt="perfil" />
         <img class="active" src="assets/images/svg/user-fill.svg" alt="perfil" />
         <span>Perfil</span>

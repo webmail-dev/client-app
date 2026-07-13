@@ -1,6 +1,6 @@
 # Contenido dinámico, JSON y PocketBase
 
-Esta guía documenta cómo Dale Pues carga contenido visible para Home, Food, Grocery, Pharmacy y Profile.
+Esta guía documenta cómo Vecimerca carga contenido visible para Home, Food, Grocery, Pharmacy y Profile.
 
 ## Estado actual
 

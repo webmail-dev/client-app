@@ -2,7 +2,7 @@ export type UserType = 'client' | 'merchant' | 'courier' | 'admin' | 'support';
 
 export type UserStatus = 'active' | 'pending' | 'rejected' | 'blocked' | 'inactive';
 
-export interface DalePuesUser {
+export interface VecimercaUser {
   id: string;
   email?: string;
   name?: string;

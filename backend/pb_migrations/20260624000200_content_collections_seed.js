@@ -291,8 +291,8 @@ function seedContent(app) {
       featured: true,
     },
     {
-      slug: 'mercado-dale-pues',
-      name: 'Mercado Dale Pues',
+      slug: 'mercado-vecimerca',
+      name: 'Mercado Vecimerca',
       type: 'grocery',
       description: 'Frescos y víveres de comercios aliados',
       rating: 4.5,
@@ -300,8 +300,8 @@ function seedContent(app) {
       featured: true,
     },
     {
-      slug: 'farmacia-dale-pues',
-      name: 'Farmacia Dale Pues',
+      slug: 'farmacia-vecimerca',
+      name: 'Farmacia Vecimerca',
       type: 'pharmacy',
       description: 'Medicamentos y cuidado personal',
       rating: 4.5,
@@ -388,7 +388,7 @@ function seedContent(app) {
       rating: 4.5,
       deliveryTime: '20min',
       tags: { unit: 'kg', offerTag: '20% menos', section: 'products' },
-      business: relationId(businessRecords['mercado-dale-pues']),
+      business: relationId(businessRecords['mercado-vecimerca']),
       category: relationId(categoryRecords['grocery-panaderia']),
       featured: true,
     },
@@ -402,7 +402,7 @@ function seedContent(app) {
       rating: 4.5,
       deliveryTime: '20min',
       tags: { unit: 'kg', offerTag: '20% menos', section: 'products' },
-      business: relationId(businessRecords['mercado-dale-pues']),
+      business: relationId(businessRecords['mercado-vecimerca']),
     },
     {
       slug: 'jugo-de-naranja',
@@ -414,7 +414,7 @@ function seedContent(app) {
       rating: 4.5,
       deliveryTime: '20min',
       tags: { unit: 'kg', offerTag: '20% menos', section: 'products' },
-      business: relationId(businessRecords['mercado-dale-pues']),
+      business: relationId(businessRecords['mercado-vecimerca']),
       featured: true,
     },
     {
@@ -427,7 +427,7 @@ function seedContent(app) {
       rating: 4.5,
       deliveryTime: '20min',
       tags: { unit: 'kg', section: 'popular,recent' },
-      business: relationId(businessRecords['mercado-dale-pues']),
+      business: relationId(businessRecords['mercado-vecimerca']),
     },
     {
       slug: 'frutos-secos',
@@ -439,7 +439,7 @@ function seedContent(app) {
       rating: 4.5,
       deliveryTime: '20min',
       tags: { unit: 'kg', section: 'popular,recent' },
-      business: relationId(businessRecords['mercado-dale-pues']),
+      business: relationId(businessRecords['mercado-vecimerca']),
     },
     {
       slug: 'cereal-para-desayuno',
@@ -451,7 +451,7 @@ function seedContent(app) {
       rating: 4.5,
       deliveryTime: '20min',
       tags: { unit: 'kg', section: 'popular' },
-      business: relationId(businessRecords['mercado-dale-pues']),
+      business: relationId(businessRecords['mercado-vecimerca']),
     },
     {
       slug: 'galletas-de-mantequilla',
@@ -463,7 +463,7 @@ function seedContent(app) {
       rating: 4.5,
       deliveryTime: 'A 20 min de tu casa',
       tags: { unit: 'kg', section: 'recent' },
-      business: relationId(businessRecords['mercado-dale-pues']),
+      business: relationId(businessRecords['mercado-vecimerca']),
     },
     {
       slug: 'oximetro-digital',
@@ -475,7 +475,7 @@ function seedContent(app) {
       rating: 4.5,
       deliveryTime: '20min',
       tags: { offerTag: '20% menos', section: 'offers,products' },
-      business: relationId(businessRecords['farmacia-dale-pues']),
+      business: relationId(businessRecords['farmacia-vecimerca']),
       category: relationId(categoryRecords['pharmacy-medicinas']),
       featured: true,
     },
@@ -489,7 +489,7 @@ function seedContent(app) {
       rating: 4.5,
       deliveryTime: '20min',
       tags: { offerTag: '20% menos', section: 'offers,products' },
-      business: relationId(businessRecords['farmacia-dale-pues']),
+      business: relationId(businessRecords['farmacia-vecimerca']),
       featured: true,
     },
     {

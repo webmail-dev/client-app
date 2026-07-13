@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "dale-pues": {
+    "vecimerca": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -71,10 +71,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "dale-pues:build:production"
+              "buildTarget": "vecimerca:build:production"
             },
             "development": {
-              "buildTarget": "dale-pues:build:development"
+              "buildTarget": "vecimerca:build:development"
             }
           },
           "defaultConfiguration": "development"

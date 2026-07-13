@@ -67,7 +67,7 @@ export class ContentDataService {
       })),
       offers: data.promotions.map((promotion) => this.toBanner(promotion)),
       emptyState: {
-        title: 'Antojos resueltos con Dale Pues',
+        title: 'Antojos resueltos con Vecimerca',
         subtitle: 'Comida preparada y entregas urbanas cerca de ti',
       },
     }));

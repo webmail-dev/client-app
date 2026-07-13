@@ -984,7 +984,7 @@ header {
 }
 
 .landing {
-  background-image: url(https://themes.pixelstrap.com/zomo-app-landing/assets/images/background/restaurant-bg.png);
+  background-image: url(../images/background/restaurant-bg.png);
   background-color: red;
   background-position: center;
 }

@@ -5,7 +5,7 @@
 | Componente | Responsabilidad | Inputs / notas |
 | --- | --- | --- |
 | `AppHeader` | Header superior con titulo, menu lateral, ubicacion y botones visuales. | `title`, `showSidebar`. |
-| `AppSidebar` | Offcanvas lateral con perfil, enlaces y switches RTL/dark. | Usa `RouterLink`; interacciones conectadas por `VisualPluginService`. |
+| `AppSidebar` | Offcanvas lateral con perfil, enlaces y modo oscuro. | Usa `RouterLink`; interacciones conectadas por `VisualPluginService`. |
 | `BottomNav` | Navegacion inferior fija. | `active`, `logo`, `brand`; rutas a home, food, grocery, pharmacy y profile. |
 | `SearchBar` | Buscador visual compartido con boton de filtros. | `placeholder`. No ejecuta busqueda real todavia. |
 | `FilterModal` | Modal fullscreen de filtros estaticos. | No emite filtros al codigo Angular todavia. |

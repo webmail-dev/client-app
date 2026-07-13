@@ -38,8 +38,8 @@ export class UiInitService {
     ['.products', { slidesPerView: 1.35, spaceBetween: 14 }],
     ['.brands-logo', { slidesPerView: 4.2, spaceBetween: 12 }],
     ['.main-seller-product', { slidesPerView: 1.3, spaceBetween: 14 }],
-    ['.grocery-categories', { slidesPerView: 3.2, spaceBetween: 12 }],
-    ['.pharmacy-categories', { slidesPerView: 4.2, spaceBetween: 12 }],
+    ['.grocery-categories', { slidesPerView: 2.2, spaceBetween: 12, loop: true, grabCursor: true }],
+    ['.pharmacy-categories', { slidesPerView: 3.2, spaceBetween: 12, loop: true, grabCursor: true }],
     ['.grocery-product', { slidesPerView: 1.65, spaceBetween: 14 }],
     ['.discount-banner', { slidesPerView: 1.2, spaceBetween: 14 }],
   ];

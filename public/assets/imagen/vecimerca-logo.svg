@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1041 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Vecimerca</title>
+  <desc id="desc">Isotipo de Vecimerca con toldo naranja y monograma turquesa.</desc>
+  <g id="store-awning">
+    <path id="canopy" fill="#ff6800" d="M204 46h633c28 0 54 13 72 35l94 124c24 31 36 68 36 107v2H2v-2c0-39 12-77 36-108l94-123c18-23 44-35 72-35Z"/>
+    <path id="scallop-shadow" fill="#f25b12" d="M2 302h1037v33c0 57-47 104-104 104-50 0-92-36-102-84-13 47-56 82-107 82s-94-35-106-83c-13 48-56 83-107 83s-94-35-107-83c-12 48-55 83-106 83s-94-35-107-82c-10 48-52 84-102 84C49 439 2 392 2 335v-33Z"/>
+  </g>
+  <g id="awning-stripes">
+    <path id="stripe-left-border" fill="#fff" d="M339 97h111l-35 213v28c0 48-39 87-87 87s-87-39-87-87v-31L339 97Z"/>
+    <path id="stripe-left" fill="#d9d9d9" d="M351 109h84l-32 199v30c0 41-34 75-75 75s-75-34-75-75v-28l98-201Z"/>
+    <path id="stripe-right-border" fill="#fff" d="M617 97h111l98 210v31c0 48-39 87-87 87s-87-39-87-87v-28L617 97Z"/>
+    <path id="stripe-right" fill="#d9d9d9" d="M632 109h84l98 201v28c0 41-34 75-75 75s-75-34-75-75v-30l-32-199Z"/>
+    <path id="stripe-shade" fill="#cfcfcf" opacity=".7" d="M253 302h150v36c0 41-34 75-75 75s-75-34-75-75v-36Zm411 0h150v36c0 41-34 75-75 75s-75-34-75-75v-36Z"/>
+  </g>
+  <g id="vecimerca-mark" fill="none" stroke="#2f9d9c" stroke-width="54" stroke-linecap="round" stroke-linejoin="round">
+    <path id="left-stem" d="M151 446c42 114 89 237 145 361 46 101 126 153 244 160"/>
+    <path id="center-stem" d="M253 421c56 112 107 242 170 365 49 95 115 141 196 135"/>
+    <path id="middle-v" d="M390 426l111 274c35 87 89 127 162 122"/>
+    <path id="right-stem-inner" d="M672 430 563 718c25 55 69 89 124 89 45 0 82-23 104-67l122-294"/>
+    <path id="right-stem-outer" d="M815 422 707 724c-43 119-102 200-181 242"/>
+  </g>
+</svg>

@@ -1,4 +1,4 @@
-# Operacion
+# Operación
 
 ## Dependencias
 
@@ -41,7 +41,7 @@ Variables criticas del despliegue:
 
 | Variable | Uso |
 | --- | --- |
-| `POCKETBASE_URL` | URL publica del backend consumida por Angular, por ejemplo `https://api.dalepues.com`. |
+| `POCKETBASE_URL` | URL publica del backend consumida por Angular, por ejemplo `https://api.vecimerca.com`. |
 | `POCKETBASE_ORIGINS` | Lista CORS permitida para `./pocketbase serve --origins`. |
 | `POCKETBASE_ENCRYPTION_KEY` | Clave de 32 caracteres para `--encryptionEnv` si se cifran ajustes sensibles de PocketBase. |
 | `GOOGLE_OAUTH_CLIENT_ID` | Cliente OAuth configurado en PocketBase para login con Google. |
@@ -55,12 +55,12 @@ npm ci
 npm run build
 ```
 
-Publicar `dist/dale-pues/browser`.
+Publicar `dist/vecimerca/browser`.
 
 | Destino | Notas |
 | --- | --- |
 | GitHub Pages | Configurar `.nojekyll`, base href/fallback SPA si se sirve desde subcarpeta, y publicar el build estatico. |
-| AWS Amplify | Usar `npm ci`, `npm run build` y artifact `dist/dale-pues/browser`. |
+| AWS Amplify | Usar `npm ci`, `npm run build` y artifact `dist/vecimerca/browser`. |
 
 ### Backend
 

@@ -9,7 +9,7 @@
 | `ContentDataService` | Contenido dinamico. | Consulta PocketBase, normaliza records, resuelve imagenes y usa JSON local como fallback. |
 | `ScriptLoaderService` | Carga scripts externos. | `load` y `loadAll`; evita duplicados por URL. |
 | `UiInitService` | Inicializacion visual post-render. | Carga Swiper, espera DOM renderizado, destruye instancias previas y evita sliders vacios. |
-| `VisualPluginService` | Inicializa interacciones heredadas. | Listeners para RTL, dark mode, rangos y likes; delega Swiper a `UiInitService`. |
+| `VisualPluginService` | Inicializa interacciones heredadas. | Listeners para dark mode, rangos y likes; delega Swiper a `UiInitService`. |
 | `BodyClassService` | Helper visual de layout. | Administra `grocery-color` y `pharmacy-color` en `body`. |
 | `authGuard` | Proteccion de rutas autenticadas. | Refresca sesion, bloquea inactive/blocked y exige perfil completo. |
 | `profileCompletionGuard` | Control de completar perfil. | Solo permite usuarios autenticados con perfil incompleto. |

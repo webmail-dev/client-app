@@ -75,7 +75,7 @@ src/
 | --- | --- | --- |
 | `src/app/components` | Componentes compartidos | Header, sidebar, navegacion inferior, busqueda, modales y secciones del Home. |
 | `src/app/components/home` | Secciones reutilizables del Home | Categorias, franja de oferta, banners y productos destacados. |
-| `src/app/pages` | Paginas de ruta | Auth, completar perfil, home y vistas por vertical. |
+| `src/app/pages` | Páginas de ruta | Auth, completar perfil, home y vistas por vertical. |
 | `src/app/services` | Servicios transversales | Auth PocketBase, contenido dinamico, SDK PocketBase, scripts, plugins visuales, Swiper y clases de body. |
 | `src/app/models/content.models.ts` | Contratos de contenido | Interfaces para categorias, banners, productos, restaurantes y perfil. |
 | `src/app/guards` | Proteccion de rutas | Sesion, perfil completo y roles. |

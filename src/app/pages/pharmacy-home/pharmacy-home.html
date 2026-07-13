@@ -36,7 +36,7 @@
   <section class="search-section">
     <div class="custom-container">
       @for (banner of content.banners; track banner.image) {
-        <!-- TODO: reemplazar esta imagen por una versión con texto en español para Dale Pues. -->
+        <!-- TODO: reemplazar esta imagen por una versión con texto en español para Vecimerca. -->
         <img class="img-fluid pharmacy-banner-img" [src]="banner.image" [alt]="banner.alt" />
       } @empty {
         <h6 class="light-text">No hay banners disponibles.</h6>
@@ -222,7 +222,7 @@
         <div class="swiper-wrapper">
           @for (banner of content.discountBanners; track banner.image) {
             <div class="swiper-slide">
-              <!-- TODO: reemplazar esta imagen por una versión con texto en español para Dale Pues. -->
+              <!-- TODO: reemplazar esta imagen por una versión con texto en español para Vecimerca. -->
               <img class="img-fluid discount-banner" [src]="banner.image" [alt]="banner.alt" />
             </div>
           } @empty {
@@ -294,4 +294,4 @@
 
 <app-filter-modal />
 <app-location-modal />
-<app-bottom-nav active="pharmacy" logo="pharmacy-logo" brand="Dale Pues" />
+<app-bottom-nav active="pharmacy" logo="pharmacy-logo" brand="Vecimerca" />

@@ -1,6 +1,6 @@
-# Dale Pues
+# Vecimerca
 
-Dale Pues es una aplicación web progresiva mobile-first para delivery y comercio local. El estado actual cubre autenticación con PocketBase, registro de usuarios, completar perfil, navegación protegida y contenido dinámico para Home, Food, Grocery, Pharmacy y Profile.
+Vecimerca es una aplicación web progresiva mobile-first para delivery y comercio local. El estado actual cubre autenticación con PocketBase, registro de usuarios, completar perfil, navegación protegida y contenido dinámico para Home, Food, Grocery, Pharmacy y Profile.
 
 ## Tecnologías
 
@@ -421,7 +421,7 @@ Swiper se usa en:
 * Grocery: `grocery-categories`, `grocery-product`.
 * Pharmacy: `pharmacy-categories`, `grocery-product`, `discount-banner`.
 
-`VisualPluginService` conserva listeners heredados de la plantilla, como dark mode, RTL, rangos y likes, y delega la creación/destrucción de Swiper a `UiInitService`.
+`VisualPluginService` conserva listeners heredados de la plantilla, como dark mode, rangos y likes, y delega la creación/destrucción de Swiper a `UiInitService`.
 
 ## Build y despliegue
 
@@ -434,13 +434,13 @@ npm run build
 El build se genera en:
 
 ```text
-dist/dale-pues/browser
+dist/vecimerca/browser
 ```
 
 Opciones contempladas:
 
 * GitHub Pages: publicar el contenido estático y configurar fallback SPA/base href si se sirve desde subcarpeta.
-* AWS Amplify: conectar repositorio, usar `npm ci` y `npm run build`, publicar `dist/dale-pues/browser`.
+* AWS Amplify: conectar repositorio, usar `npm ci` y `npm run build`, publicar `dist/vecimerca/browser`.
 
 Backend:
 

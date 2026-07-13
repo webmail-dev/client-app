@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { RecordModel } from 'pocketbase';
 import {
   CompleteProfilePayload,
-  DalePuesUser,
+  VecimercaUser,
   RegisterPayload,
   UserStatus,
   UserType,
@@ -23,13 +23,13 @@ export class AuthPocketbaseService {
   private readonly pb = inject(PocketbaseService).getInstance();
   private readonly router = inject(Router);
 
-  async login(email: string, password: string): Promise<DalePuesUser> {
+  async login(email: string, password: string): Promise<VecimercaUser> {
     const authData = await this.pb.collection('users').authWithPassword(email, password);
     const user = await this.afterAuth(authData.record);
     return user;
   }
 
-  async register(data: RegisterPayload): Promise<DalePuesUser> {
+  async register(data: RegisterPayload): Promise<VecimercaUser> {
     const type = data.type || 'client';
     const status = this.getDefaultStatus(type);
 
@@ -47,13 +47,13 @@ export class AuthPocketbaseService {
         phone: data.phone,
         type,
         termsAccepted: data.termsAccepted,
-      } as DalePuesUser),
+      } as VecimercaUser),
     });
 
     return this.login(data.email, data.password);
   }
 
-  async loginWithGoogle(): Promise<DalePuesUser> {
+  async loginWithGoogle(): Promise<VecimercaUser> {
     const authData = await this.pb.collection('users').authWithOAuth2({
       provider: 'google',
     });
@@ -70,7 +70,7 @@ export class AuthPocketbaseService {
     return this.pb.collection('users').requestPasswordReset(email);
   }
 
-  getCurrentUser(): DalePuesUser | null {
+  getCurrentUser(): VecimercaUser | null {
     const record = this.pb.authStore.record;
     return record ? this.toUser(record) : null;
   }
@@ -85,7 +85,7 @@ export class AuthPocketbaseService {
     return !!user?.type && allowedTypes.includes(user.type);
   }
 
-  async refreshSession(): Promise<DalePuesUser | null> {
+  async refreshSession(): Promise<VecimercaUser | null> {
     if (!this.pb.authStore.isValid) {
       this.pb.authStore.clear();
       return null;
@@ -100,7 +100,7 @@ export class AuthPocketbaseService {
     }
   }
 
-  async completeProfile(payload: CompleteProfilePayload): Promise<DalePuesUser> {
+  async completeProfile(payload: CompleteProfilePayload): Promise<VecimercaUser> {
     const current = this.getCurrentUser();
 
     if (!current?.id) {
@@ -121,7 +121,7 @@ export class AuthPocketbaseService {
     return this.toUser(updated);
   }
 
-  checkProfileCompletion(user: DalePuesUser): boolean {
+  checkProfileCompletion(user: VecimercaUser): boolean {
     const type = user.type || 'client';
     const hasBaseData = !!user.phone && user.termsAccepted === true;
 
@@ -148,11 +148,11 @@ export class AuthPocketbaseService {
     return TEMPORARY_ROLE_REDIRECTS[type] || '/home';
   }
 
-  isBlockedOrInactive(user: DalePuesUser | null): boolean {
+  isBlockedOrInactive(user: VecimercaUser | null): boolean {
     return user?.status === 'blocked' || user?.status === 'inactive';
   }
 
-  async redirectAfterAuth(user: DalePuesUser): Promise<void> {
+  async redirectAfterAuth(user: VecimercaUser): Promise<void> {
     if (this.isBlockedOrInactive(user)) {
       this.logout();
       return;
@@ -184,7 +184,7 @@ export class AuthPocketbaseService {
     return 'No fue posible completar la operación. Inténtalo nuevamente.';
   }
 
-  private async afterAuth(record: RecordModel): Promise<DalePuesUser> {
+  private async afterAuth(record: RecordModel): Promise<VecimercaUser> {
     const normalized = await this.ensureUserDefaults(record);
 
     if (this.isBlockedOrInactive(normalized)) {
@@ -196,10 +196,10 @@ export class AuthPocketbaseService {
     return this.getCurrentUser() || normalized;
   }
 
-  private async ensureUserDefaults(record: RecordModel): Promise<DalePuesUser> {
+  private async ensureUserDefaults(record: RecordModel): Promise<VecimercaUser> {
     const user = this.toUser(record);
     const type = user.type || 'client';
-    const patch: Partial<DalePuesUser> = {};
+    const patch: Partial<VecimercaUser> = {};
 
     if (!user.type) {
       patch.type = type;
@@ -245,7 +245,7 @@ export class AuthPocketbaseService {
     return 'active';
   }
 
-  private toUser(record: RecordModel): DalePuesUser {
+  private toUser(record: RecordModel): VecimercaUser {
     return {
       id: record.id,
       email: record['email'],

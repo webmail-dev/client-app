@@ -1,7 +1,7 @@
 export default {
-   base: '/client-app/',
-  title: 'Dale Pues',
-  description: 'Documentacion tecnica de Dale Pues',
+  base: '/client-app/',
+  title: 'Vecimerca',
+  description: 'Documentación técnica de Vecimerca',
   lang: 'es-CO',
   cleanUrls: true,
   lastUpdated: true,
@@ -9,12 +9,12 @@ export default {
   head: [['link', { rel: 'icon', href: '/client-app/logo.svg' }]],
   themeConfig: {
     logo: '/logo.svg',
-    siteTitle: 'Dale Pues Docs',
+    siteTitle: 'Vecimerca Docs',
     nav: [
       { text: 'Inicio', link: '/' },
-      { text: 'Guia', link: '/guide/arquitectura' },
+      { text: 'Guía', link: '/guide/arquitectura' },
       { text: 'Backend', link: '/guide/backend' },
-      { text: 'Operacion', link: '/guide/operacion' }
+      { text: 'Operación', link: '/guide/operacion' }
     ],
     sidebar: [
       {
@@ -30,7 +30,7 @@ export default {
         text: 'Frontend',
         items: [
           { text: 'Componentes', link: '/guide/componentes' },
-          { text: 'Paginas', link: '/guide/paginas' },
+          { text: 'Páginas', link: '/guide/paginas' },
           { text: 'Servicios y datos', link: '/guide/servicios-y-datos' },
           { text: 'PWA y assets', link: '/guide/pwa-y-assets' }
         ]
@@ -40,7 +40,7 @@ export default {
         items: [{ text: 'PocketBase y usuarios', link: '/guide/backend' }]
       },
       {
-        text: 'Operacion',
+        text: 'Operación',
         items: [
           { text: 'Dependencias y despliegue', link: '/guide/operacion' },
           { text: 'Agregar una vertical', link: '/guide/how-to-vertical' },
@@ -50,7 +50,7 @@ export default {
     ],
     outline: {
       level: [2, 3],
-      label: 'En esta pagina'
+      label: 'En esta página'
     },
     search: {
       provider: 'local'
@@ -60,7 +60,7 @@ export default {
       next: 'Siguiente'
     },
     darkModeSwitchLabel: 'Tema',
-    sidebarMenuLabel: 'Menu',
+    sidebarMenuLabel: 'Menú',
     returnToTopLabel: 'Volver arriba',
     lastUpdatedText: 'Actualizado'
   }

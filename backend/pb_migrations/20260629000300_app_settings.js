@@ -83,7 +83,7 @@ function upsertDefaultSettings(app) {
 
   Object.entries({
     key: 'default',
-    appName: 'Dale Pues',
+    appName: 'Vecimerca',
     slogan: 'Delivery rápido y confiable',
     primaryColor: '#FF7A00',
     secondaryColor: '#1B1D2A',

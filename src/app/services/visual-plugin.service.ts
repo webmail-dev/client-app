@@ -29,16 +29,6 @@ export class VisualPluginService {
     const { signal } = this.interactionsController;
 
     this.zone.runOutsideAngular(() => {
-      document.querySelector<HTMLInputElement>('#dir-switch')?.addEventListener(
-        'change',
-        (event) => {
-          const checked = (event.target as HTMLInputElement).checked;
-          document.documentElement.setAttribute('dir', checked ? 'rtl' : 'ltr');
-          localStorage.setItem('dir', checked ? 'rtl' : 'ltr');
-        },
-        { signal },
-      );
-
       document.querySelector<HTMLInputElement>('#dark-switch')?.addEventListener(
         'change',
         (event) => {

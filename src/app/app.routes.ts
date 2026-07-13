@@ -29,7 +29,7 @@ export const routes: Routes = [
     path: 'home',
     canActivate: [authGuard],
     loadComponent: () => import('./pages/home/home').then((m) => m.HomePage),
-    title: 'Dale Pues',
+    title: 'Vecimerca',
   },
   {
     path: 'food',

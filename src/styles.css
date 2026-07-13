@@ -8,6 +8,9 @@ body {
 }
 
 body {
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
   padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
 }
 
@@ -19,6 +22,39 @@ app-root {
 .navbar-menu {
   z-index: 1030;
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+.navbar-menu ul a.icon {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.navbar-menu ul a.icon span {
+  display: none;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.navbar-menu ul li.active a.icon span {
+  display: block;
+}
+
+.navbar-menu ul a.icon.logo app-vecimerca-isotype {
+  margin-inline: auto;
+}
+
+.navbar-menu ul li.market-active a.icon.logo {
+  color: #27b4b0;
+}
+
+.navbar-menu ul li.pharmacy-active a.icon.logo {
+  color: #2684c7;
 }
 
 .sidebar-offcanvas {
